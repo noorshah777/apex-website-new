@@ -27,6 +27,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
+import TraditionsSection from "@/components/traditions-section"
 import { generateGoogleCalendarLink } from "@/utils/calendar"
 
 // Timeline data with minimalist icons instead of emojis
@@ -221,6 +222,46 @@ const communityImages = [
   {
     src: "/images/join/speeddating.JPEG",
     alt: "APEX during recruitment events",
+  },
+  {
+    src: "/images/join/bean.JPEG",
+    alt: "APEX members at The Bean in Chicago",
+  },
+  {
+    src: "/images/join/cider.JPEG",
+    alt: "APEX members at a cider mill",
+  },
+  {
+    src: "/images/join/football.JPEG",
+    alt: "APEX members at a football game",
+  },
+  {
+    src: "/images/join/friendsgiving.JPEG",
+    alt: "APEX Friendsgiving",
+  },
+  {
+    src: "/images/join/gameday.JPEG",
+    alt: "APEX gameday tailgate",
+  },
+  {
+    src: "/images/join/law.JPEG",
+    alt: "APEX at a law school mixer",
+  },
+  {
+    src: "/images/join/mckinsey.JPEG",
+    alt: "APEX members at a McKinsey event",
+  },
+  {
+    src: "/images/join/newbie.JPEG",
+    alt: "APEX newbie event",
+  },
+  {
+    src: "/images/join/sand.JPEG",
+    alt: "APEX members at the beach",
+  },
+  {
+    src: "/images/join/welcomeweek.JPEG",
+    alt: "APEX at Welcome Week",
   },
 ]
 
@@ -550,6 +591,8 @@ export default function JoinPage() {
               </div>
             </div>
           </div>
+
+          <TraditionsSection />
 
           {/* Application Process - Carousel Style */}
           <div className="my-20">

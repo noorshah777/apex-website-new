@@ -16,7 +16,7 @@ const dancingScript = Dancing_Script({
 })
 
 export const metadata: Metadata = {
-  title: "Apex Consulting Group",
+  title: "APEX Consulting Group",
   description: "University of Michigan's Premier Consulting Group",
   icons: {
     icon: "/favicon.ico",

@@ -35,7 +35,7 @@ export default function Navbar() {
           <div className="relative h-12 w-32">
             <Image
               src="/images/apex-logo.png"
-              alt="Apex Consulting Group"
+              alt="APEX Consulting Group"
               fill
               style={{ objectFit: "contain" }}
               priority

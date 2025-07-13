@@ -153,7 +153,7 @@ export default function EnhancedFooter() {
               <div className="flex items-center space-x-2 mb-4">
                 <Image
                   src="/images/apex-logo.png"
-                  alt="Apex Consulting Group"
+                  alt="APEX Consulting Group"
                   width={120}
                   height={50}
                   className="bg-white p-2 rounded-md"
