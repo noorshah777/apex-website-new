@@ -7,7 +7,7 @@ Created in 2025, uses Next.js, TailwindCSS, JavaScript, TypeScript
 
 Ensure that node.js and npm.js are installed on your computer by running the command `node -v` followed by `npm -v`. If a version number does not appear, follow installation documentation [https://nodejs.org/en/download]
 
-After installing node and npm, run `npm install clsx tailwind-merge @radix-ui/react-slot class-variance-authority @radix-ui/react-accordion @radix-ui/react-label @radix-ui/react-tabs next-themes @vercel/fonts` to ensure all appropriate librarires are installed.
+After installing node and npm, run `npm install clsx tailwind-merge @radix-ui/react-slot class-variance-authority @radix-ui/react-accordion @radix-ui/react-label @radix-ui/react-tabs next-themes swiper` to ensure all appropriate librarires are installed.
 
 
 ## Running the Website
