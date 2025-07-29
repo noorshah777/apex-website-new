@@ -22,6 +22,8 @@ import {
 } from "lucide-react"
 import PageHeader from "@/components/page-header"
 import { motion, AnimatePresence } from "framer-motion"
+import LogoCarousel from '@/components/logo-carousel';
+
 
 //Service Data
 const services = [
@@ -457,6 +459,9 @@ export default function ServicesPage() {
                 From strategic initiatives to technical projects, explore our diverse portfolio of client work. Our consultants are also equipped to address challenges beyond these areas, bringing versatile expertise to meet your evolving needs.
               </p>
             </div>
+
+            {/* Logo Carousel */}
+            <LogoCarousel />
 
             <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
               <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full mb-8">
