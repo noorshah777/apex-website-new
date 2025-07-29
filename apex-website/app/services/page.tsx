@@ -461,7 +461,12 @@ export default function ServicesPage() {
             </div>
 
             {/* Logo Carousel */}
-            <LogoCarousel />
+            <div className="mt-16 mb-16">  {/* more space top & bottom */}
+              <div className="text-center max-w-3xl mx-auto mb-12">
+              </div>
+
+              <LogoCarousel />
+            </div>
 
             <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
               <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full mb-8">
