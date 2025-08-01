@@ -101,24 +101,33 @@ export default function LogoCarousel() {
         {logoGroups.map((group, idx) => (
           <SwiperSlide key={idx}>
             <div className="p-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 place-items-center">
-                {group.map((logo) => (
-                  <div
-                    key={logo.alt}
-                    className="h-16 flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={240}
-                      height={96}
-                      className="max-h-12 w-auto"
-                    />
-                  </div>
-                ))}
+              <div className="flex flex-wrap justify-center gap-6 min-h-[10rem]">
+                {group.map((logo) => {
+                  // Dynamic size logic
+                  const heightClass =
+                    group.length >= 12 ? 'h-12' :
+                    group.length >= 8 ? 'h-16' :
+                    'h-20';
+
+                  return (
+                    <div
+                      key={logo.alt}
+                      className={`flex items-center justify-center ${heightClass} basis-[120px] grow max-w-[160px]`}
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={200}
+                        height={100}
+                        className="w-auto object-contain translate-y-6"
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </SwiperSlide>
+
         ))}
       </Swiper>
     </div>
