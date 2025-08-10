@@ -5,9 +5,8 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import 'swiper/css';
 
-type Logo = { src: string; alt: string } | JSX.Element;
+type Logo = { src: string; alt: string };
 
 // 3 groups → 3 slides
 const logoGroups: Logo[][] = [

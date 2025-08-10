@@ -6,7 +6,7 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import EnhancedFooter from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
-
+import 'swiper/css'
 
 // Load Inter and Dancing Script fonts
 const inter = Inter({ subsets: ["latin"] })
