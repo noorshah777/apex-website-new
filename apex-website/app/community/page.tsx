@@ -129,7 +129,7 @@ const memberTestimonials = [
     testimonial:
       "APEX is my favorite group of people on campus. Whether it is asking someone to look over my resume or finding someone to grab a sweet treat with at night, APEX members are the first people I reach out to. Professionally, every single person in the org is so easy to reach out to for help, whether it is for mock interviewing or helping talk through those long career navigation conversations. And personally, it really is a family. From karaoke nights to Just Dance to cooking, I found my best friends (and roommates) through APEX and always learn something new from these unique and awesome people.",
     signature: "Sreejay Ramakrishnan",
-    image: "/images/member-testimonials/SreejayR.jpg",
+    image: "/images/member-testimonials/SreejayR.JPG",
   },
   {
     id: 4,
