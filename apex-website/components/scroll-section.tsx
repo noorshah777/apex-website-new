@@ -11,10 +11,10 @@ export default function ScrollSection() {
   // Stats data
   const stats = [
     { icon: Users, value: "50+", label: "Members" },
-    { icon: GraduationCap, value: "100+", label: "Alumni" },
-    { icon: Building, value: "130+", label: "Businesses Served" },
+    { icon: GraduationCap, value: "130+", label: "Alumni" },
+    { icon: Building, value: "150+", label: "Businesses Served" },
     { icon: CalendarCheck, value: "13", label: "Years of Experience" },
-    { icon: LibraryBig, value: "12+", label: "Different Majors" },
+    { icon: LibraryBig, value: "20+", label: "Different Majors" },
   ]
 
   // Welcome section with fade-in animation

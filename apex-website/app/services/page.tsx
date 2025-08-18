@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
 import {
-  ArrowRight,
   CheckCircle2,
   TrendingUp,
   Calendar,
@@ -19,9 +19,88 @@ import {
   UserCheck,
   PresentationIcon as PresentationChart,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Quote,
 } from "lucide-react"
 import PageHeader from "@/components/page-header"
 import { motion, AnimatePresence } from "framer-motion"
+import TypingEffect from "@/components/typing-effect"
+
+const testimonials = [
+  {
+    name: "Steve Miles",
+    role: "Sr. NPI and Launch Change Manager",
+    company: "Rivian",
+    year: "Winter 2025",
+    image: "/images/client-testimonials/rivian.png",
+    quote:
+      "It was a genuine pleasure collaborating with the APEX during the W25 semester. We were consistently impressed with the team's professionalism and promptness, which ensured a smooth and efficient project. Their outstanding communication kept us well-informed throughout the entire process. Most importantly, the results delivered exceeded our expectations, and we found the quality of the work and the insights provided to be exceptional. We are very much looking forward to the possibility of working with APEX on future projects and would highly recommend the team to any organization seeking a dedicated and high-performing consulting partner.",
+  },
+
+  {
+    name: "Michael Schwartzseid",
+    role: "Sr. Manager of Brand Analytics",
+    company: "Tropical Smoothie Cafe",
+    year: "Summer 2025",
+    image: "/images/client-testimonials/tropsmoothie.png",
+    quote:
+      "From the time that I began working with our APEX Consulting project team, I saw nothing but professionalism and an eagerness to help our brand. Their final presentation as well as other deliverables that we received at the end of our engagement, were top notch and will be utilized in brand strategy discussions over the coming months. I would highly recommend working with APEX to consult on any challenges that your company may be facing.",
+  },
+
+  {
+    name: "Anoop D",
+    role: "Chief Strategy Officer",
+    company: "Deepgram",
+    year: "Winter 2025",
+    image: "/images/client-testimonials/deepgram.png",
+    quote:
+      "I want to sincerely thank the APEX Consulting team for their exceptional work with Deepgram. The strategic insights and market analysis they delivered while balancing your academic workload were impressive. APEX’s fresh perspectives will surely translate into actionable solutions. The professional quality of APEX’s work speaks volumes about the team’s talents.",
+  },
+
+  {
+    name: "Nicole Medvitz",
+    role: "Director, Business Development",
+    company: "Detroit Pistons",
+    year: "Winter 2025",
+    image: "/images/client-testimonials/pistons.png",
+    quote:
+      "Working with APEX on our consulting project with the Detroit Pistons was truly rewarding. Their team brought a fresh perspective and delivered creative ideas that helped us reimagine fan engagement and campaign strategy. Their ability to tailor innovative solutions to our unique goals was able to make an impact.",
+  },
+]
+
+// Company logos where alumni work
+const companyLogos = [
+  { name: "McKinsey", image: "/images/placement/mckinsey.png" },
+  { name: "BCG", image: "/images/placement/bcg.png" },
+  { name: "Bain", image: "/images/placement/bain.jpg" },
+  { name: "PWC", image: "/images/placement/pwc.png" },
+  { name: "Deloitte", image: "/images/placement/deloitte.png" },
+  { name: "KPMG", image: "/images/placement/kpmg.png" },
+  { name: "EY", image: "/images/placement/ey.webp" },
+  { name: "Accenture", image: "/images/placement/accenture.jpg" },
+  { name: "Strategy&", image: "/images/placement/strategy&.png" },
+  { name: "JP Morgan", image: "/images/placement/jpmorgan.png" },
+  { name: "Goldman", image: "/images/placement/goldman.png" },
+  { name: "Morgan Stanley", image: "/images/placement/morganstanley.png" },
+  { name: "Citi", image: "/images/placement/citi.png" },
+  { name: "Google", image: "/images/placement/google.png" },
+  { name: "Meta", image: "/images/placement/meta.png" },
+  { name: "Amazon", image: "/images/placement/amazon.png" },
+  { name: "Microsoft", image: "/images/placement/microsoft.png" },
+  { name: "Capital One", image: "/images/placement/capitalone.png" },
+  { name: "Salesforce", image: "/images/placement/citadel.png" },
+  { name: "AMEX", image: "/images/placement/amex.png" },
+  { name: "Deutsche", image: "/images/placement/deutsche.jpg" },
+  { name: "Guggenheim", image: "/images/placement/guggenheim.jpeg" },
+  { name: "Merril Lynch", image: "/images/placement/merril.png" },
+  { name: "William Blair", image: "/images/placement/williamblair.jpg" },
+  { name: "IBM", image: "/images/placement/ibm.png" },
+  { name: "Citadel", image: "/images/placement/citadel.png" },
+  { name: "Coca Cola", image: "/images/placement/cocacola.png" },
+  { name: "NASA", image: "/images/placement/nasa.png" },
+  { name: "Dow Jones", image: "/images/placement/dow.png" },
+]
 
 //Service Data
 const services = [
@@ -51,13 +130,13 @@ const services = [
         ],
         semester: "Winter 2024",
       },
-            {
+      {
         id: "micro-mobility",
         title: "Micro-Mobility Startup",
         clientOverview:
           "Leading micro-mobility company offering electric scooter rentals to urban commuters, students, and tourists via a global mobile platform.",
         problem:
-              "The client needed to address two major gaps: slow customer acquisition and weak retention across key markets. Despite strong brand recognition, the company lacked a targeted marketing strategy to reach underrepresented demographics, and its ride frequency and loyalty metrics were falling short. The client needed actionable, data-backed strategies to attract new users—especially women and students—and convert occasional riders into daily users.",
+          "The client needed to address two major gaps: slow customer acquisition and weak retention across key markets. Despite strong brand recognition, the company lacked a targeted marketing strategy to reach underrepresented demographics, and its ride frequency and loyalty metrics were falling short. The client needed actionable, data-backed strategies to attract new users—especially women and students—and convert occasional riders into daily users.",
         solution:
           "APEX focused on customer acquisition and retention. The team conducted customer segmentation, market research, influencer landscape analysis, and geographic prioritization. By combining qualitative insights with demographic and ridership data, APEX was able to develop targeted growth strategies tailored to user personas, cities, and behavioral trends, driving customer acquisition for the company within their desired market.",
         deliverables: [
@@ -71,7 +150,6 @@ const services = [
         ],
         semester: "Winter 2023",
       },
-    
     ],
   },
   {
@@ -89,21 +167,20 @@ const services = [
         problem:
           "Despite leveraging cutting-edge automation for fulfillment, the client faced systemic inefficiencies in its warehouse receiving process. Incomplete pallets, inconsistent vendor configurations, and frequent reordering of slow-moving goods created bottlenecks. These inefficiencies, coupled with communication gaps in a usage-based automation model and the complexities of expanding into smaller-format stores, resulted in increased downtime, rising operational costs, and misaligned stakeholder incentives.",
         solution:
-          "APEX implemented a three-phase strategy: first, we analyzed a year’s worth of warehouse receiving data to identify inefficiency patterns; next, we assessed automation usage and proposed enhancements for vendor coordination; finally, we developed a hybrid contract model to incentivize uptime and proposed scalable solutions for automation in smaller-format stores. Our approach combined data analytics, operational insights, and industry best practices to drive measurable improvements.",
+          "APEX implemented a three-phase strategy: first, we analyzed a year's worth of warehouse receiving data to identify inefficiency patterns; next, we assessed automation usage and proposed enhancements for vendor coordination; finally, we developed a hybrid contract model to incentivize uptime and proposed scalable solutions for automation in smaller-format stores. Our approach combined data analytics, operational insights, and industry best practices to drive measurable improvements.",
         deliverables: [
           "A detailed breakdown of pallet inefficiencies across top product and vendor categories",
           "A redesigned open-book system framework to improve communication and accountability",
           "Hybrid contract model integrating performance-based incentives with operational stability",
           "A roadmap for scaling automation systems into modular, space-efficient fulfillment centers",
-          "Vendor negotiation toolkit and resource database to support contract restructuring and KPI alignment", 
+          "Vendor negotiation toolkit and resource database to support contract restructuring and KPI alignment",
         ],
         semester: "Winter 2025",
       },
       {
         id: "capital-lender",
         title: "Working Capital Lender",
-        clientOverview:
-          "Direct lender of working capital loans and merchant cash advances",
+        clientOverview: "Direct lender of working capital loans and merchant cash advances",
         problem:
           "The client wanted to address inefficiencies in its internal processes. Inconsistencies in onboarding, employee engagement, and training—especially across Sales, Pricing, and Collections—were hindering performance. There was also a need to reevaluate PTO structure for commission-based employees and improve adoption of internal HR software. The client sought a cohesive, scalable plan to optimize workforce structure, reduce burnout, and increase team cohesion.",
         solution:
@@ -131,8 +208,7 @@ const services = [
       {
         id: "ev-oem",
         title: "Electric Vehicle OEM",
-        clientOverview:
-          "Multi-billion dollar USA-based electric vehicle OEM",
+        clientOverview: "Multi-billion dollar USA-based electric vehicle OEM",
         problem:
           "The client approached APEX with concerns regarding inefficiencies within a critical aspect of their supply chain. They required a data-driven solution to forecast the time and cost of key process actions by leveraging historical data. APEX was tasked with building a predictive model to support informed decision-making.",
         solution:
@@ -167,7 +243,6 @@ const services = [
         ],
         semester: "Winter 2024",
       },
-
     ],
   },
   {
@@ -185,7 +260,7 @@ const services = [
         problem:
           "The client approached APEX while evaluating expansion into the B2B catering space but lacked clarity on the competitive landscape and where the strongest market opportunities lay. To support strategic decision-making, they required a detailed analysis of direct, indirect, and M&A competitors, as well as segmented market sizing by region and industry.",
         solution:
-          "To address the client’s uncertainty around entering the B2B catering space, APEX took a two-phased approach: a competitive landscape analysis and segmented market sizing. The team evaluated direct, indirect, and M&A competitors to understand offerings and acquisition strategies, then conducted regional and industry sizing using primary (e.g., cold calls, surveys) and secondary research. These insights informed key growth drivers and a clear go-to-market strategy.",
+          "To address the client's uncertainty around entering the B2B catering space, APEX took a two-phased approach: a competitive landscape analysis and segmented market sizing. The team evaluated direct, indirect, and M&A competitors to understand offerings and acquisition strategies, then conducted regional and industry sizing using primary (e.g., cold calls, surveys) and secondary research. These insights informed key growth drivers and a clear go-to-market strategy.",
         deliverables: [
           "Competitive landscape analysis of direct and indirect players",
           "Proposed acquisition strategy and diligence with synergy evaluation",
@@ -261,7 +336,7 @@ const services = [
           "Expansion roadmap identifying top 10 U.S. small, medium, and large cities by tech-readiness, housing trends, and demographics",
           "Developer segmentation and outreach strategy for Miami-Dade, Bay Area, Salt Lake City, and other target markets",
           "Excel-based pricing calculator to help sales teams adjust quotes by region, home size, and design tier",
-          "Strategic risks and mitigants for scaling into regulated or climate-sensitive regions"
+          "Strategic risks and mitigants for scaling into regulated or climate-sensitive regions",
         ],
         semester: "Fall 2023",
       },
@@ -282,7 +357,7 @@ const services = [
         problem:
           "The client lacked a standardized pricing model and relied on manual quote generation for each customer, resulting in inconsistent pricing, delayed turnaround times, and customer confusion regarding how pricing was determined. This inefficiency created friction in the sales process and hindered scalability as the business grew. Without a clear pricing framework, it was also difficult to communicate product value or adapt pricing to different customer segments.",
         solution:
-          "To solve this, APEX implemented a structured three-phase strategy comprising detailed research, strategic pricing development, and iterative testing. The team assessed the client’s product portfolio and current pricing processes, then conducted market research including competitor benchmarking, customer data analysis, and expert interviews. These findings informed the development of a streamlined pricing framework and an interactive calculator for the client’s website, enhancing transparency and operational efficiency.",
+          "To solve this, APEX implemented a structured three-phase strategy comprising detailed research, strategic pricing development, and iterative testing. The team assessed the client's product portfolio and current pricing processes, then conducted market research including competitor benchmarking, customer data analysis, and expert interviews. These findings informed the development of a streamlined pricing framework and an interactive calculator for the client's website, enhancing transparency and operational efficiency.",
         deliverables: [
           "5 Annotated Competitor Expert Interview Transcripts",
           "Client and Competitor Case Studies",
@@ -311,7 +386,7 @@ const services = [
           "Growth and Retention Strategy Playbook",
           "Implementation Guidelines and Roadmap",
           "Cost Model for Recommended Initiatives",
-          "Supporting Marketing Materials"
+          "Supporting Marketing Materials",
         ],
         semester: "Summer 2024",
       },
@@ -351,6 +426,42 @@ const processSteps = [
   },
 ]
 
+const clientCategories = [
+  {
+    category: "local businesses",
+    logos: [
+      { name: "Mainstreet Ventures", logo: "/images/clients/mainstreet.png" },
+      { name: "UM Student Life Housing", logo: "/images/clients/mhousing.png" },
+      { name: "Ann Arbor District Library", logo: "/images/clients/library.jpg" },
+      { name: "Ann Arbor Hands-On Museum", logo: "/images/clients/museum.png" },
+      { name: "Zingerman's", logo: "/images/clients/zingermans.png" },
+      { name: "May Mobility", logo: "/images/clients/maymobility.png" },
+    ],
+  },
+  {
+    category: "innovative startups",
+    logos: [
+      { name: "Aptera", logo: "/images/clients/aptera.png" },
+      { name: "Deepgram", logo: "/images/clients/deepgram.png" },
+      { name: "Lineleap", logo: "/images/clients/lineleap.png"},
+      { name: "Mighty Buildings", logo: "/images/clients/mightybuildings.jpg" },
+      { name: "Care Evolution", logo: "/images/clients/careevolution.jpg" },
+      { name: "Pixo VR", logo: "/images/clients/pixovr.png" },
+    ],
+  },
+  {
+    category: "industry leaders",
+    logos: [
+      { name: "GrubHub", logo: "/images/clients/grubhub.png" },
+      { name: "SoundCloud", logo: "/images/clients/soundcloud.png" },
+      { name: "Rivian", logo: "/images/clients/rivian.jpg" },
+      { name: "Detroit Pistons", logo: "/images/clients/pistons.png" },
+      { name: "Snackpass", logo: "/images/clients/snackpass.png" },
+      { name: "Get Your Guide", logo: "/images/clients/getyourguide.png" },
+    ],
+  },
+]
+
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState("marketing")
   const [activeProject, setActiveProject] = useState<Record<string, string>>({
@@ -362,6 +473,11 @@ export default function ServicesPage() {
     strategy: "healthcare-tech",
   })
   const [showDropdown, setShowDropdown] = useState<string | null>(null)
+  const [currentClientCategory, setCurrentClientCategory] = useState(0)
+
+  const handleWordChange = (newIndex: number) => {
+    setCurrentClientCategory(newIndex)
+  }
 
   // Handle tab change
   const handleTabChange = (value: string) => {
@@ -387,6 +503,39 @@ export default function ServicesPage() {
   const currentService = services.find((service) => service.id === activeTab)
   const currentProject = currentService?.projects.find((project) => project.id === activeProject[activeTab])
 
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [autoplay, setAutoplay] = useState(true)
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null)
+  const logoContainerRef = useRef<HTMLDivElement>(null)
+
+  // Handle testimonial navigation
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  // Autoplay for testimonials
+  useEffect(() => {
+    if (autoplay) {
+      autoplayRef.current = setInterval(() => {
+        nextTestimonial()
+      }, 5000)
+    }
+
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current)
+      }
+    }
+  }, [autoplay, currentTestimonial])
+
+  // Pause autoplay on hover
+  const handleMouseEnter = () => setAutoplay(false)
+  const handleMouseLeave = () => setAutoplay(true)
+
   return (
     <div>
       <PageHeader
@@ -398,45 +547,372 @@ export default function ServicesPage() {
         ]}
       />
 
-      <div className="py-10 md:py-16">
+      <div className="md:space-y-8">
+        {/* Previous Clients Section */}
+        <div className="bg-white dark:bg-gray-800 py-16 md:py-24">
+          <div className="container px-4 md:px-6">
+            <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                We proudly serve{" "}
+                <span className="text-apex-red">
+                  <TypingEffect
+                    words={clientCategories.map((cat) => cat.category)}
+                    speed={100}
+                    deleteSpeed={50}
+                    delayBetweenWords={2000}
+                    onWordChange={handleWordChange}
+                  />
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg">
+                From local Ann Arbor businesses to Fortune 500 companies, our diverse client portfolio reflects our
+                ability to deliver value across all industries and company sizes.
+              </p>
+            </div>
+
+            {/* Client Logos Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+              {clientCategories[currentClientCategory].logos.map((client, index) => (
+                <motion.div
+                  key={`${currentClientCategory}-${index}`}
+                  className="flex items-center justify-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300"
+                  initial={{ opacity: 0.3, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.05,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 25px rgba(220, 38, 38, 0.2)",
+                  }}
+                >
+                  <div className="relative w-full h-12">
+                    <Image
+                      src={client.logo || "/placeholder.svg"}
+                      alt={client.name}
+                      fill
+                      className="object-contain transition-all duration-300"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Category Indicators */}
+            <div className="flex justify-center space-x-2">
+              {clientCategories.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentClientCategory ? "bg-apex-red w-8" : "bg-gray-300 dark:bg-gray-600"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Client Testimonials Section */}
+        <div className="bg-gray-50 dark:bg-gray-900 py-16 md:py-24">
+          <div className="container px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Client Testimonials</h2>
+              <p className="text-gray-800 text-base md:text-lg">
+                Hear what our clients have to say about working with APEX Consulting Group.
+              </p>
+            </div>
+
+            <div
+              className="relative overflow-hidden bg-white dark:bg-white rounded-2xl shadow-xl max-w-6xl mx-auto"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="w-full flex-shrink-0">
+                    <div className="grid md:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="relative w-32 h-32 overflow-hidden mb-6 shadow-lg">
+                          <Image
+                            src={testimonial.image || "/placeholder.svg"}
+                            alt={testimonial.name}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                        <h3 className="font-bold text-xl mb-2 text-gray-900">{testimonial.name}</h3>
+                        <p className="text-base text-gray-600 mb-1">{testimonial.role}</p>
+                        <p className="text-base font-medium text-apex-red mb-1">{testimonial.company}</p>
+                        <p className="text-sm text-gray-500">{testimonial.year}</p>
+                      </div>
+                      <div className="flex flex-col justify-center">
+                        <div className="relative">
+                          <Quote className="absolute -top-4 -left-4 h-12 w-12 text-apex-red opacity-20" />
+                          <p className="text-lg md:text-xl leading-relaxed pl-8 pr-4 italic text-gray-700">
+                            "{testimonial.quote}"
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Navigation dots */}
+              <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    className={cn(
+                      "w-3 h-3 rounded-full transition-all duration-300",
+                      index === currentTestimonial ? "bg-apex-red w-8" : "bg-gray-300",
+                    )}
+                    onClick={() => setCurrentTestimonial(index)}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Navigation arrows */}
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg"
+                onClick={prevTestimonial}
+              >
+                <ChevronLeft className="h-5 w-5" />
+                <span className="sr-only">Previous testimonial</span>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg"
+                onClick={nextTestimonial}
+              >
+                <ChevronRight className="h-5 w-5" />
+                <span className="sr-only">Next testimonial</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Case Studies Section */}
         <div className="container px-4 md:px-6">
-          {/* Animated Process Section */}
-          <div className="mb-24">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl font-bold mb-4">Our Consulting Process</h2>
-              <p className="text-muted-foreground">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Case Studies</h2>
+            <p className="text-muted-foreground text-base md:text-lg">
+              From strategic initiatives to technical projects, explore our diverse portfolio of client work.
+            </p>
+          </div>
+
+          <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
+            <div className="mb-8 overflow-x-auto">
+              <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full min-w-[600px] md:min-w-0">
+                {services.map((service) => (
+                  <TabsTrigger
+                    key={service.id}
+                    value={service.id}
+                    className="flex items-center gap-1 md:gap-2 text-xs md:text-sm px-2 md:px-4"
+                  >
+                    <span className="hidden sm:block">{service.icon}</span>
+                    <span className="truncate">{service.title}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+
+            <AnimatePresence mode="wait">
+              {services.map((service) => (
+                <TabsContent key={service.id} value={service.id} className="mt-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-8"
+                  >
+                    <div>
+                      <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-2">
+                        <span className="text-apex-red">{service.icon}</span>
+                        {service.title} Consulting
+                      </h2>
+                      <p className="text-muted-foreground mt-2 text-sm md:text-base">{service.description}</p>
+                    </div>
+
+                    <div className="relative">
+                      <button
+                        onClick={() => toggleDropdown(service.id)}
+                        className="flex items-center justify-between w-full sm:min-w-[200px] sm:w-auto sm:max-w-full p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <span className="font-medium truncate pr-2">
+                          {service.projects.find((p) => p.id === activeProject[service.id])?.title ||
+                            "Select a project"}
+                        </span>
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform flex-shrink-0 ${
+                            showDropdown === service.id ? "transform rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {showDropdown === service.id && (
+                        <div className="absolute z-10 w-full sm:min-w-[200px] sm:w-auto sm:max-w-[400px] mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1">
+                          {service.projects.map((project) => (
+                            <button
+                              key={project.id}
+                              onClick={() => handleProjectSelect(service.id, project.id)}
+                              className={`w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-sm md:text-base ${
+                                activeProject[service.id] === project.id
+                                  ? "bg-gray-100 dark:bg-gray-700 font-medium"
+                                  : ""
+                              }`}
+                            >
+                              {project.title}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {currentProject && (
+                      <Card className="overflow-hidden border-none shadow-lg">
+                        <CardContent className="p-0">
+                          <div className="bg-gradient-to-r from-apex-red to-red-700 p-4 md:p-6 text-white">
+                            <h3 className="text-lg md:text-xl font-bold text-white">
+                              {currentProject.title} Case Study
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1 text-sm text-white">
+                              <Calendar className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                              <span>Project Semester: {currentProject.semester}</span>
+                            </div>
+                          </div>
+
+                          <div className="p-4 md:p-6 space-y-6 md:space-y-8">
+                            {/* Client Overview Section */}
+                            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 md:p-6">
+                              <h4 className="text-base md:text-lg font-semibold flex items-center gap-2 mb-3">
+                                <Users className="h-4 w-4 md:h-5 md:w-5 text-apex-red" />
+                                Client Overview
+                              </h4>
+                              <p className="text-sm md:text-base">{currentProject.clientOverview}</p>
+                            </div>
+
+                            {/* Problem & Solution Sections */}
+                            <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
+                              <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 md:p-6"
+                              >
+                                <h4 className="text-base md:text-lg font-semibold flex items-center gap-2 mb-3 text-blue-700 dark:text-blue-300">
+                                  <Target className="h-4 w-4 md:h-5 md:w-5" />
+                                  The Challenge
+                                </h4>
+                                <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                                  {currentProject.problem}
+                                </p>
+                              </motion.div>
+
+                              <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 md:p-6"
+                              >
+                                <h4 className="text-base md:text-lg font-semibold flex items-center gap-2 mb-3 text-green-700 dark:text-green-300">
+                                  <Lightbulb className="h-4 w-4 md:h-5 md:w-5" />
+                                  Our Solution
+                                </h4>
+                                <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+                                  {currentProject.solution}
+                                </p>
+                              </motion.div>
+                            </div>
+
+                            {/* Deliverables Section */}
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.3 }}
+                              className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 md:p-6"
+                            >
+                              <h4 className="text-base md:text-lg font-semibold flex items-center gap-2 mb-4">
+                                <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5 text-apex-red" />
+                                Key Deliverables
+                              </h4>
+                              <div className="grid sm:grid-cols-2 gap-3">
+                                {currentProject.deliverables.map((deliverable, index) => (
+                                  <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.4 + index * 0.1 }}
+                                    className="flex items-start gap-2"
+                                  >
+                                    <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                    <span className="text-sm md:text-base">{deliverable}</span>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+                  </motion.div>
+                </TabsContent>
+              ))}
+            </AnimatePresence>
+          </Tabs>
+        </div>
+
+        {/* Our Consulting Process Section */}
+        <div className="container px-4 md:px-6">
+          <div className="mb-16 md:mb-24">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Consulting Process</h2>
+              <p className="text-muted-foreground text-base md:text-lg">
                 Our structured 8-week pro bono consulting process delivers maximum value to our clients.
               </p>
             </div>
             <div className="relative">
-              {/* Connecting line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-700 transform -translate-x-1/2 z-0"></div>
+              {/* Desktop connecting line */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-700 transform -translate-x-1/2 z-0"></div>
 
-              <div className="relative z-10 space-y-16">
+              <div className="relative z-10 space-y-12 md:space-y-20">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={index}
-                    className={`flex ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}
+                    className={`flex flex-col md:flex-row ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-6 md:gap-12`}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true, margin: "-100px" }}
                   >
-                    <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
+                    <div
+                      className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} text-center md:text-left`}
+                    >
+                      <h3 className="text-xl md:text-2xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{step.description}</p>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative flex-shrink-0">
                       <div className="absolute inset-0 bg-gray-400 rounded-full opacity-20 animate-ping"></div>
-                      <div className="relative bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg z-20">
+                      <div className="relative bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow-lg z-20">
                         {step.icon}
                       </div>
                     </div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 md:block hidden">
                       <div
-                        className={`text-6xl font-bold text-gray-100 dark:text-gray-800 ${
+                        className={`text-5xl md:text-7xl font-bold text-gray-100 dark:text-gray-800 ${
                           index % 2 === 0 ? "text-left" : "text-right"
                         }`}
                       >
@@ -447,178 +923,6 @@ export default function ServicesPage() {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Past Projects */}
-          <div className="mt-12">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl font-bold mb-4">Our Past Projects</h2>
-              <p className="text-muted-foreground">
-                From strategic initiatives to technical projects, explore our diverse portfolio of client work. Our consultants are also equipped to address challenges beyond these areas, bringing versatile expertise to meet your evolving needs.
-              </p>
-            </div>
-
-            <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
-              <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full mb-8">
-                {services.map((service) => (
-                  <TabsTrigger key={service.id} value={service.id} className="flex items-center gap-2">
-                    {service.icon}
-                    {service.title}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              <AnimatePresence mode="wait">
-                {services.map((service) => (
-                  <TabsContent key={service.id} value={service.id} className="mt-8">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="space-y-8"
-                    >
-                      <div>
-                        <h2 className="text-3xl font-bold flex items-center gap-2">
-                          <span className="text-apex-red">{service.icon}</span>
-                          {service.title} Consulting
-                        </h2>
-                        <p className="text-muted-foreground mt-2">{service.description}</p>
-                      </div>
-
-                      {/* Project Selection Dropdown */}
-                      <div className="relative">
-                        <button
-                          onClick={() => toggleDropdown(service.id)}
-                          className="flex items-center justify-between min-w-[200px] w-auto max-w-full p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors whitespace-nowrap overflow-hidden text-ellipsis"
-                        >
-                          <span className="font-medium">
-                            {service.projects.find((p) => p.id === activeProject[service.id])?.title ||
-                              "Select a project"}
-                          </span>
-                          <ChevronDown
-                            className={`h-5 w-5 transition-transform ${
-                              showDropdown === service.id ? "transform rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-
-                        {/* Dropdown Menu */}
-                        {showDropdown === service.id && (
-                          <div className="absolute z-10 min-w-[200px] w-auto max-w-[400px] mt-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1">
-                            {service.projects.map((project) => (
-                              <button
-                                key={project.id}
-                                onClick={() => handleProjectSelect(service.id, project.id)}
-                                className={`w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                                  activeProject[service.id] === project.id
-                                    ? "bg-gray-100 dark:bg-gray-700 font-medium"
-                                    : ""
-                                }`}
-                              >
-                                {project.title}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Case Study Card */}
-                      {currentProject && (
-                        <Card className="overflow-hidden border-none shadow-lg">
-                          <CardContent className="p-0">
-                            <div className="bg-gradient-to-r from-apex-red to-red-700 p-4 text-white">
-                              <h3 className="text-xl font-bold">{currentProject.title}</h3>
-                              <div className="flex items-center gap-2 mt-1 text-sm">
-                                <Calendar className="h-4 w-4" />
-                                <span>Project Semester: {currentProject.semester}</span>
-                              </div>
-                            </div>
-
-                            <div className="p-6 space-y-8">
-                              {/* Client Overview Section */}
-                              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                                <h4 className="text-lg font-semibold flex items-center gap-2 mb-3">
-                                  <Users className="h-5 w-5 text-apex-red" />
-                                  Client Overview
-                                </h4>
-                                <p>{currentProject.clientOverview}</p>
-                              </div>
-
-                              {/* Problem & Solution Sections */}
-                              <div className="grid md:grid-cols-2 gap-6">
-                                <motion.div
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.1 }}
-                                  className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6"
-                                >
-                                  <h4 className="text-lg font-semibold flex items-center gap-2 mb-3 text-blue-700 dark:text-blue-300">
-                                    <Target className="h-5 w-5" />
-                                    The Challenge
-                                  </h4>
-                                  <p className="text-gray-700 dark:text-gray-300">{currentProject.problem}</p>
-                                </motion.div>
-
-                                <motion.div
-                                  initial={{ opacity: 0, y: 20 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  transition={{ delay: 0.2 }}
-                                  className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6"
-                                >
-                                  <h4 className="text-lg font-semibold flex items-center gap-2 mb-3 text-green-700 dark:text-green-300">
-                                    <Lightbulb className="h-5 w-5" />
-                                    Our Approach
-                                  </h4>
-                                  <p className="text-gray-700 dark:text-gray-300">{currentProject.solution}</p>
-                                </motion.div>
-                              </div>
-
-                              {/* Deliverables Section */}
-                              <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border-l-4 border-apex-red"
-                              >
-                                <h4 className="text-lg font-semibold flex items-center gap-2 mb-4 text-apex-red">
-                                  <CheckCircle2 className="h-5 w-5" />
-                                  Key Deliverables
-                                </h4>
-                                <ul className="space-y-4">
-                                  {currentProject.deliverables.map((deliverable, index) => (
-                                    <motion.li
-                                      key={index}
-                                      className="flex items-start"
-                                      initial={{ opacity: 0, x: -20 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      transition={{ delay: 0.3 + index * 0.1 }}
-                                    >
-                                      <div className="bg-green-100 dark:bg-green-900 rounded-full p-1 mr-3 flex-shrink-0 mt-0.5">
-                                        <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
-                                      </div>
-                                      <span className="text-gray-700 dark:text-gray-300">{deliverable}</span>
-                                    </motion.li>
-                                  ))}
-                                </ul>
-                              </motion.div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )}
-
-                      <div className="flex justify-center">
-                        <Button asChild size="lg" className="bg-gray-800 hover:bg-gray-700">
-                          <Link href="/contact" className="flex items-center gap-2">
-                            Inquire About This Service <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
-                    </motion.div>
-                  </TabsContent>
-                ))}
-              </AnimatePresence>
-            </Tabs>
           </div>
         </div>
       </div>

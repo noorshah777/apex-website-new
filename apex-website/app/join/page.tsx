@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import {
   ArrowRight,
   Calendar,
@@ -27,7 +28,6 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
-import TraditionsSection from "@/components/traditions-section"
 import { generateGoogleCalendarLink } from "@/utils/calendar"
 
 // Timeline data with minimalist icons instead of emojis
@@ -40,7 +40,7 @@ const timelineEvents = [
     location: "Ross Basement - Table 41",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
-    icon: <Building className="h-5 w-5" />,
+    icon: <Building className="h-5 w-5 font-bold" />,
   },
   {
     id: "application-release",
@@ -52,7 +52,7 @@ const timelineEvents = [
     url: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
     linkText: "Apply here",
     active: false,
-    icon: <FileText className="h-5 w-5" />,
+    icon: <FileText className="h-5 w-5 font-bold" />,
   },
   {
     id: "mass-meeting",
@@ -62,7 +62,7 @@ const timelineEvents = [
     location: "Blau Colloquium",
     description: "Learn more about APEX Consulting Group, our projects, and the application process",
     active: false,
-    icon: <Users className="h-5 w-5" />,
+    icon: <Users className="h-5 w-5 font-bold" />,
   },
   {
     id: "speed-dating",
@@ -74,7 +74,7 @@ const timelineEvents = [
     url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-54388586-apex#/",
     linkInDescription: "Sign up required",
     active: false,
-    icon: <MessageSquare className="h-5 w-5" />,
+    icon: <MessageSquare className="h-5 w-5 font-bold" />,
   },
   {
     id: "dei-panel",
@@ -84,7 +84,7 @@ const timelineEvents = [
     location: "B1580",
     description: "Learn about our commitment to diversity, equity, and inclusion",
     active: false,
-    icon: <Users className="h-5 w-5" />,
+    icon: <Users className="h-5 w-5 font-bold" />,
   },
   {
     id: "application-office-hours",
@@ -96,7 +96,7 @@ const timelineEvents = [
     url: "https://umich.zoom.us/j/7991518779#success",
     linkInDescription: "via Zoom",
     active: false,
-    icon: <HelpCircle className="h-5 w-5" />,
+    icon: <HelpCircle className="h-5 w-5 font-bold" />,
   },
   {
     id: "app-due",
@@ -108,7 +108,7 @@ const timelineEvents = [
     url: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
     linkText: "Apply here",
     active: false,
-    icon: <Clock className="h-5 w-5" />,
+    icon: <Clock className="h-5 w-5 font-bold" />,
   },
   {
     id: "case-workshop",
@@ -118,7 +118,7 @@ const timelineEvents = [
     location: "See Invitation",
     description: "Learn about case interviews and practice with current members. Invite only event",
     active: false,
-    icon: <Briefcase className="h-5 w-5" />,
+    icon: <Briefcase className="h-5 w-5 font-bold" />,
   },
   {
     id: "interviews",
@@ -126,9 +126,9 @@ const timelineEvents = [
     date: "Friday, January 31, 2025 - Sunday, February 2, 2025",
     time: "Various Times",
     location: "Ross School of Business",
-    description: "Selected candidates will be invited for interviews",
+    description: "Selected candidates will be invited for interviews.",
     active: false,
-    icon: <UserPlus className="h-5 w-5" />,
+    icon: <UserPlus className="h-5 w-5 font-bold" />,
   },
 ]
 
@@ -136,7 +136,7 @@ const timelineEvents = [
 const applicationSteps = [
   {
     title: "Written Application",
-    description: "Submit your resume and answer a few short questions about your interest in consulting and APEX",
+    description: "Submit your resume and answer a few short questions about your interest in consulting and APEX.",
     icon: <FileText className="h-10 w-10 text-apex-red" />,
     details:
       "Our written application helps us understand your background, interests, and why you want to join APEX. Be authentic and showcase your unique experiences and perspectives.",
@@ -159,7 +159,7 @@ const applicationSteps = [
   },
   {
     title: "Final Decision",
-    description: "Selected candidates will receive an offer to join APEX Consulting Group",
+    description: "Selected candidates will receive an offer to join APEX Consulting Group.",
     icon: <Award className="h-10 w-10 text-apex-red" />,
     details:
       "We evaluate candidates holistically, considering your application, interviews, and interactions throughout the recruitment process. Decisions are typically made within a week after final interviews.",
@@ -167,7 +167,6 @@ const applicationSteps = [
 ]
 
 // FAQ data
-
 const faqItems = [
   {
     question: "Do I need prior consulting experience to join APEX?",
@@ -223,46 +222,30 @@ const communityImages = [
     src: "/images/join/speeddating.JPEG",
     alt: "APEX during recruitment events",
   },
+]
+
+// Analyst class member quotes data
+const analystClassQuotes = [
   {
-    src: "/images/join/bean.JPEG",
-    alt: "APEX members at The Bean in Chicago",
+    alt: "APEX analyst class bonding moments",
+    quote:
+      "Joining APEX taught me how to translate education taught in class and modules into real impact through collaboration with companies, and has helped me to shape my interests going into recruitment. My new member semester also exposed me to more unconventional career paths within business, and gave me a group of passionate individuals all rooting for my success in whatever I pursue!",
+    major: "BBA '28, W25 Analyst Class",
+    author: "Katelyn Knickerbocker",
   },
   {
-    src: "/images/join/cider.JPEG",
-    alt: "APEX members at a cider mill",
+    alt: "APEX analyst class bonding moments",
+    quote: "My new member semester was an amazing learning experience, both from my new member ed and my project! I loved getting closer to the other members of my analyst class, and I was really interested in my project as it was technical and exactly what I was looking for. APEX gave me an incredible, tight-knit community, which I’m looking forward to spending my time with for years to come!",
+    major: "Mechanical Engineering'28, W25 Analyst Class",
+    author: "Vansh Baxi",
   },
   {
-    src: "/images/join/football.JPEG",
-    alt: "APEX members at a football game",
+    alt: "APEX analyst class bonding moments",
+    quote: "The APEX new member semester was truly an unforgettable experience. I grew so much as a person in the business world and in life itself, and I credit so many of my freshman year friendships and memories to APEX. Bonding with the girls in my analyst class over sushi in Chicago reminded me how lucky I am to be part of such a great group of people!",
+    major: "BBA '28, W25 Analyst Class",
+    author: "Reagan Masek",
   },
-  {
-    src: "/images/join/friendsgiving.JPEG",
-    alt: "APEX Friendsgiving",
-  },
-  {
-    src: "/images/join/gameday.JPEG",
-    alt: "APEX gameday tailgate",
-  },
-  {
-    src: "/images/join/law.JPEG",
-    alt: "APEX at a law school mixer",
-  },
-  {
-    src: "/images/join/mckinsey.JPEG",
-    alt: "APEX members at a McKinsey event",
-  },
-  {
-    src: "/images/join/newbie.JPEG",
-    alt: "APEX newbie event",
-  },
-  {
-    src: "/images/join/sand.JPEG",
-    alt: "APEX members at the beach",
-  },
-  {
-    src: "/images/join/welcomeweek.JPEG",
-    alt: "APEX at Welcome Week",
-  },
+
 ]
 
 export default function JoinPage() {
@@ -270,6 +253,9 @@ export default function JoinPage() {
   const [animateTimeline, setAnimateTimeline] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
+  const [isHovering, setIsHovering] = useState(false)
+  const [hoverQuoteIndex, setHoverQuoteIndex] = useState(0)
   const timelineRef = useRef<HTMLDivElement>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
@@ -312,6 +298,28 @@ export default function JoinPage() {
 
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuoteIndex((prev) => (prev === analystClassQuotes.length - 1 ? 0 : prev + 1))
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null
+
+    if (isHovering) {
+      interval = setInterval(() => {
+        setHoverQuoteIndex((prev) => (prev === analystClassQuotes.length - 1 ? 0 : prev + 1))
+      }, 3000) // Change quote every 3 seconds while hovering
+    }
+
+    return () => {
+      if (interval) clearInterval(interval)
+    }
+  }, [isHovering])
 
   // Ensure all links scroll to top of page
   useEffect(() => {
@@ -376,15 +384,12 @@ export default function JoinPage() {
 
       <div className="py-10 md:py-16">
         <div className="container px-4 md:px-6">
-          {/* Interactive Timeline - Redesigned with line in the middle */}
           <div ref={timelineRef} className="mb-20">
             <h2 className="text-2xl font-bold mb-8 text-center">Recruitment Timeline</h2>
 
-            <div className="relative">
-              {/* Horizontal line - now positioned to intersect the middle of circles */}
+            {/* Desktop Timeline */}
+            <div className="hidden md:block relative">
               <div className="absolute top-[22px] left-0 right-0 h-1 bg-gray-200 dark:bg-gray-700"></div>
-
-              {/* Timeline events */}
               <div className="flex justify-between relative">
                 {timelineEvents.map((event, index) => (
                   <div
@@ -419,6 +424,43 @@ export default function JoinPage() {
               </div>
             </div>
 
+            <div className="md:hidden space-y-4">
+              {timelineEvents.map((event, index) => (
+                <div
+                  key={event.id}
+                  className={cn(
+                    "flex items-center gap-4 p-4 rounded-lg border transition-all cursor-pointer",
+                    activeEvent === event.id
+                      ? "border-apex-red bg-red-50 dark:bg-red-900/20"
+                      : "border-gray-200 dark:border-gray-700 hover:border-apex-red",
+                  )}
+                  onClick={() => setActiveEvent(event.id)}
+                >
+                  <div
+                    className={cn(
+                      "w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0",
+                      activeEvent === event.id
+                        ? "bg-apex-red text-white"
+                        : "bg-gray-100 dark:bg-gray-800 text-gray-500",
+                    )}
+                  >
+                    {event.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3
+                      className={cn(
+                        "font-medium text-sm",
+                        activeEvent === event.id ? "text-apex-red" : "text-foreground",
+                      )}
+                    >
+                      {event.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground truncate">{event.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Event details */}
             <div className="mt-16">
               {timelineEvents.map((event) => (
@@ -431,11 +473,11 @@ export default function JoinPage() {
                 >
                   <Card className="border-apex-red overflow-hidden">
                     <div className="bg-apex-red h-1"></div>
-                    <CardContent className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                    <CardContent className="p-4 md:p-6">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 sm:gap-4 items-start sm:items-center">
                         <div>
-                          <h3 className="text-xl font-bold">{event.title}</h3>
-                          <div className="flex flex-wrap gap-4 text-sm mt-2">
+                          <h3 className="text-lg md:text-xl font-bold">{event.title}</h3>
+                          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-sm mt-2">
                             <div className="flex items-center gap-1 text-muted-foreground">
                               <Calendar className="h-4 w-4" />
                               {event.date}
@@ -446,24 +488,30 @@ export default function JoinPage() {
                             </div>
                             <div className="flex items-center gap-1 text-muted-foreground">
                               <MapPin className="h-4 w-4" />
-                              {event.location ? <> {event.location} </> : event.location}
+                              {event.location}
                             </div>
                           </div>
                         </div>
 
-                        <div>
+                        <div className="flex-shrink-0">
                           {event.active ? (
-                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-100 text-green-800 text-sm font-medium">
+                            <div className="flex items-center text-green-600 dark:text-green-400 text-sm font-medium">
                               <Check className="h-4 w-4 mr-1" />
                               Currently Active
                             </div>
+                          ) : event.id === "case-workshop" || event.id === "interviews" ? (
+                            <div className="text-sm text-gray-600 dark:text-gray-400 italic">Invitation Only Event</div>
                           ) : (
-                            <Button variant="outline" className="text-sm border-black dark:border-white" asChild>
+                            <Button
+                              variant="outline"
+                              className="text-sm border-black dark:border-white w-full sm:w-auto bg-transparent"
+                              asChild
+                            >
                               <a
                                 href={getCalendarLink(event)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-1"
+                                className="flex items-center gap-1 justify-center"
                               >
                                 Add to Calendar <ArrowRight className="h-3 w-3" />
                               </a>
@@ -472,7 +520,7 @@ export default function JoinPage() {
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground text-sm md:text-base py-4">
                         {event.linkInDescription ? (
                           <>
                             {event.description.replace(event.linkInDescription, "")}{" "}
@@ -508,14 +556,12 @@ export default function JoinPage() {
             </div>
           </div>
 
-          {/* Why Join APEX - Redesigned with more visual appeal */}
           <div className="my-20">
             <h2 className="text-2xl font-bold mb-8 text-center">Why Join APEX?</h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="relative overflow-hidden rounded-xl">
-                {/* Image Carousel */}
-                <div className="relative w-full h-full aspect-video">
+            <div className="grid lg:grid-cols-2 gap-8">
+              <div className="relative overflow-hidden rounded-xl order-2 lg:order-1">
+                <div className="relative w-full h-64 sm:h-80 lg:h-full aspect-video">
                   {communityImages.map((image, index) => (
                     <div
                       key={index}
@@ -527,9 +573,9 @@ export default function JoinPage() {
                     </div>
                   ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-xl font-bold mb-2">Join Our Community</h3>
-                    <p className="text-white/80">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2">Join Our Community</h3>
+                    <p className="text-white/80 text-sm sm:text-base">
                       APEX is more than just a consulting club - it's a supportive community where you'll form lasting
                       friendships and professional connections.
                     </p>
@@ -537,52 +583,52 @@ export default function JoinPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-4">
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 flex gap-4 transform transition-all hover:translate-x-2">
-                  <div className="rounded-full bg-apex-red/10 p-3 h-fit">
-                    <Briefcase className="h-6 w-6 text-apex-red" />
+              <div className="grid grid-cols-1 gap-4 order-1 lg:order-2">
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 flex gap-4 transform transition-all hover:translate-x-2">
+                  <div className="rounded-full bg-apex-red/10 p-3 h-fit flex-shrink-0">
+                    <Briefcase className="h-5 w-5 sm:h-6 sm:w-6 text-apex-red" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Real-World Experience</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-bold text-base sm:text-lg">Real-World Experience</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       Work on real consulting projects with actual clients, gaining valuable experience that will set
                       you apart in the job market.
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 flex gap-4 transform transition-all hover:translate-x-2">
-                  <div className="rounded-full bg-apex-red/10 p-3 h-fit">
-                    <GraduationCap className="h-6 w-6 text-apex-red" />
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 flex gap-4 transform transition-all hover:translate-x-2">
+                  <div className="rounded-full bg-apex-red/10 p-3 h-fit flex-shrink-0">
+                    <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-apex-red" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Professional Development</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-bold text-base sm:text-lg">Professional Development</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       Receive training in consulting methodologies, problem-solving, and client communication from
                       experienced members.
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 flex gap-4 transform transition-all hover:translate-x-2">
-                  <div className="rounded-full bg-apex-red/10 p-3 h-fit">
-                    <Network className="h-6 w-6 text-apex-red" />
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 flex gap-4 transform transition-all hover:translate-x-2">
+                  <div className="rounded-full bg-apex-red/10 p-3 h-fit flex-shrink-0">
+                    <Network className="h-5 w-5 sm:h-6 sm:w-6 text-apex-red" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Networking Opportunities</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-bold text-base sm:text-lg">Networking Opportunities</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       Connect with alumni working at top consulting firms, investment banks, and tech companies.
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 flex gap-4 transform transition-all hover:translate-x-2">
-                  <div className="rounded-full bg-apex-red/10 p-3 h-fit">
-                    <Users className="h-6 w-6 text-apex-red" />
+                <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 flex gap-4 transform transition-all hover:translate-x-2">
+                  <div className="rounded-full bg-apex-red/10 p-3 h-fit flex-shrink-0">
+                    <Users className="h-5 w-5 sm:h-6 sm:w-6 text-apex-red" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">Supportive Community</h3>
-                    <p className="text-muted-foreground">
+                    <h3 className="font-bold text-base sm:text-lg">Supportive Community</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       Join a supportive community of like-minded individuals who are passionate about consulting and
                       business.
                     </p>
@@ -590,100 +636,173 @@ export default function JoinPage() {
                 </div>
               </div>
             </div>
-          </div>
 
-          <TraditionsSection />
+            {/* Analyst Class Bonding Section */}
+            <div className="my-20">
+              <div className="text-center mb-12">
+                <h2 className="text-2xl font-bold mb-4">And don't forget about your analyst class!</h2>
+                <p className="text-lg text-muted-foreground max-w-6xl mx-auto leading-relaxed">
+                  One of the major draws of joining APEX is having an awesome bonding semester with your analyst class.
+                  You'll form incredible friendships, support each other through challenges, and create memories that
+                  will last a lifetime. Your analyst class becomes your APEX family - the people who will celebrate your
+                  successes, help you grow professionally, and remain lifelong friends long after graduation.
+                </p>
+              </div>
 
-          {/* Application Process - Carousel Style */}
-          <div className="my-20">
-            <h2 className="text-2xl font-bold mb-8 text-center">Application Process</h2>
+              {/* Analyst Class Image Carousel */}
+              <div className="relative max-w-6xl mx-auto">
+                <div
+                  className="relative overflow-hidden rounded-xl h-screen group cursor-pointer"
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => {
+                    setIsHovering(false)
+                    setHoverQuoteIndex(0) // Reset to first quote when not hovering
+                  }}
+                >
+                  <Image
+                    src="/images/join/hoverimage.jpg"
+                    alt="APEX analyst class bonding moment"
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition-all duration-300"></div>
 
-            <div className="relative">
-              <div className="overflow-hidden rounded-xl bg-gradient-to-r from-apex-red to-red-700 p-1">
-                <div className="bg-white dark:bg-gray-900 rounded-lg p-6 md:p-10">
-                  {/* Progress indicator */}
-                  <div className="flex justify-center mb-8">
-                    <div className="flex items-center space-x-2">
-                      {applicationSteps.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentStep(index)}
-                          className={cn(
-                            "w-2.5 h-2.5 rounded-full transition-all",
-                            currentStep === index ? "bg-apex-red w-8" : "bg-gray-300 dark:bg-gray-700",
-                          )}
-                          aria-label={`Go to step ${index + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                  >
+                    <div className="text-center text-white">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <motion.div
+                          key={hoverQuoteIndex}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <p className="text-base leading-relaxed mb-4 italic">
+                            "{analystClassQuotes[hoverQuoteIndex].quote}"
+                          </p>
+                          <p className="text-sm font-medium opacity-90">
+                            - {analystClassQuotes[hoverQuoteIndex].author}
+                          </p>
+                          <p className="text-sm font-medium opacity-90">
+                            {analystClassQuotes[hoverQuoteIndex].major}
+                          </p>
+                        </motion.div>
 
-                  {/* Carousel content */}
-                  <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-gray-100 dark:bg-gray-800 rounded-full p-8 mb-4">
-                        {applicationSteps[currentStep].icon}
+                        {/* Quote indicators */}
+                        <div className="flex justify-center mt-4 space-x-2">
+                          {analystClassQuotes.map((_, index) => (
+                            <div
+                              key={index}
+                              className={cn(
+                                "w-2 h-2 rounded-full transition-all duration-300",
+                                hoverQuoteIndex === index ? "bg-white" : "bg-white/40",
+                              )}
+                            />
+                          ))}
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold">{applicationSteps[currentStep].title}</h3>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Step {currentStep + 1} of {applicationSteps.length}
-                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+
+
+            {/* Application Process - Carousel Style */}
+            <div className="my-20">
+              <h2 className="text-2xl font-bold mb-8 text-center">Application Process</h2>
+
+              <div className="relative">
+                <div className="overflow-hidden rounded-xl bg-gradient-to-r from-apex-red to-red-700 p-1">
+                  <div className="bg-white dark:bg-gray-900 rounded-lg p-6 md:p-10">
+                    {/* Progress indicator */}
+                    <div className="flex justify-center mb-8">
+                      <div className="flex items-center space-x-2">
+                        {applicationSteps.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentStep(index)}
+                            className={cn(
+                              "w-2.5 h-2.5 rounded-full transition-all",
+                              currentStep === index ? "bg-apex-red w-8" : "bg-gray-300 dark:bg-gray-700",
+                            )}
+                            aria-label={`Go to step ${index + 1}`}
+                          />
+                        ))}
+                      </div>
                     </div>
 
-                    <div>
-                      <p className="text-lg mb-4">{applicationSteps[currentStep].description}</p>
-                      <p className="text-muted-foreground">{applicationSteps[currentStep].details}</p>
+                    {/* Carousel content */}
+                    <div className="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="bg-gray-100 dark:bg-gray-800 rounded-full p-10 mb-6">
+                          {applicationSteps[currentStep].icon}
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2">{applicationSteps[currentStep].title}</h3>
+                        <p className="text-sm text-muted-foreground">
+                          Step {currentStep + 1} of {applicationSteps.length}
+                        </p>
+                      </div>
 
-                      {currentStep === 0 && (
-                        <Button asChild className="mt-6 bg-apex-red hover:bg-red-700">
-                          <Link href="#" className="flex items-center gap-2">
-                            Apply Now <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </Button>
-                      )}
+                      <div className="space-y-4">
+                        <p className="text-xl leading-relaxed">{applicationSteps[currentStep].description}</p>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {applicationSteps[currentStep].details}
+                        </p>
+
+                        {currentStep === 0 && (
+                          <Button asChild className="mt-6 bg-apex-red hover:bg-red-700">
+                            <Link href="#" className="flex items-center gap-2">
+                              Apply Now <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Navigation buttons */}
-                  <div className="flex justify-between mt-8">
-                    <Button variant="outline" size="icon" onClick={prevStep} className="rounded-full">
-                      <ChevronLeft className="h-4 w-4" />
-                      <span className="sr-only">Previous step</span>
-                    </Button>
+                    {/* Navigation buttons */}
+                    <div className="flex justify-between mt-8">
+                      <Button variant="outline" size="icon" onClick={prevStep} className="rounded-full bg-transparent">
+                        <ChevronLeft className="h-4 w-4" />
+                        <span className="sr-only">Previous step</span>
+                      </Button>
 
-                    <Button variant="outline" size="icon" onClick={nextStep} className="rounded-full">
-                      <ChevronRight className="h-4 w-4" />
-                      <span className="sr-only">Next step</span>
-                    </Button>
+                      <Button variant="outline" size="icon" onClick={nextStep} className="rounded-full bg-transparent">
+                        <ChevronRight className="h-4 w-4" />
+                        <span className="sr-only">Next step</span>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* FAQ Section */}
-          <div id="faq" className="my-20">
-            <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+            {/* FAQ Section */}
+            <div id="faq" className="my-20">
+              <h2 className="text-2xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
 
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {faqItems.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
-                    <AccordionContent>{item.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-              </div>
+              <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                  {faqItems.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+                      <AccordionContent>{item.answer}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
 
-              <div className="mt-8 text-center">
-                <p className="text-muted-foreground mb-4">Still have questions? We're happy to help!</p>
-                <Button asChild>
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
+                <div className="mt-8 text-center">
+                  <p className="text-muted-foreground mb-4">Still have questions? We're happy to help!</p>
+                  <Button asChild>
+                    <Link href="/contact">Contact Us</Link>
+                  </Button>
+                </div>
               </div>
             </div>
-
+          </div>
         </div>
       </div>
     </div>

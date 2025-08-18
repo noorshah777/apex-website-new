@@ -52,8 +52,8 @@ const testimonials = [
   },
   {
     name: "Ronith Ganjigunta",
-    role: "Product Manger",
-    company: "Capital One",
+    role: "Software Engineering",
+    company: "Amazon",
     year: "2025",
     image: "/images/alumni-testimonials/RonithG.jpg",
     quote:

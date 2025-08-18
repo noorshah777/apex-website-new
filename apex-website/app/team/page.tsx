@@ -227,11 +227,39 @@ const teamMembers = {
   ],
   seniorAdvisors: [
     {
+      name: "Adi Gaba",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/AdiG.jpg",
+      linkedin: "https://www.linkedin.com/in/adi-gaba/",
+      email: "adigaba@umich.edu",
+    },
+    {
       name: "Caleb Hyun",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/CalebH.jpg",
+      image: "/images/headshots/SA/CalebH.JPG",
       linkedin: "https://www.linkedin.com/in/calebkhyun/",
       email: "ckhyun@umich.edu",
+    },
+    {
+      name: "Cece Lynch",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/CeceL.jpg",
+      linkedin: "https://www.linkedin.com/in/cecelynch/",
+      email: "cclynch@umich.edu",
+    },
+    {
+      name: "Chris Zhou",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/ChrisZ.png",
+      linkedin: "https://www.linkedin.com/in/zhouchristopher/",
+      email: "zhoucz@umich.edu",
+    },
+    {
+      name: "Dennis Liu",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/DennisL.png",
+      linkedin: "https://www.linkedin.com/in/dennis-c-liu/",
+      email: "denliu@umich.edu",
     },
     {
       name: "Henry Chapman",
@@ -241,33 +269,60 @@ const teamMembers = {
       email: "hcchap@umich.edu",
     },
     {
-      name: "Jaden Douglas",
+      name: "Jiya Sheth",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/JadenD.JPG",
-      linkedin: "https://www.linkedin.com/in/jadendouglas/",
-      email: "jadend@umich.edu",
+      image: "/images/headshots/SA/JiyaS.png",
+      linkedin: "https://www.linkedin.com/in/jiyaksheth/",
+      email: "jiyakps@umich.edu",
     },
     {
-      name: "Meha Nagireddy",
+      name: "Jonathan Yackel",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/MehaN2.JPG",
-      linkedin: "https://www.linkedin.com/in/mehanagireddy/",
-      email: "mnagired@umich.edu",
+      image: "/images/headshots/SA/JonathanY.png",
+      linkedin: "https://www.linkedin.com/in/jonathanyackel/",
+      email: "jyackel@umich.edu",
     },
+
     {
-      name: "Rishi Juneja",
+      name: "Lauren Allen",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/RishiJ.JPG",
-      linkedin: "https://www.linkedin.com/in/rishijuneja//",
-      email: "rishij@umich.edu",
+      image: "/images/headshots/SA/LaurenA.jpg",
+      linkedin: "https://www.linkedin.com/in/laurenallen022/",
+      email: "laurenaa@umich.edu",
     },
+
     {
-      name: "Ronith Ganjigunta",
+      name: "Lauryn Hobbs",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/RonithG.JPG",
-      linkedin: "https://www.linkedin.com/in/ronithganjigunta/",
-      email: "rronith@umich.edu",
+      image: "/images/headshots/SA/LaurynH.jpeg",
+      linkedin: "https://www.linkedin.com/in/lauryn-hobbs/",
+      email: "",
     },
+
+    {
+      name: "Matthew Berk",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/MatthewB.jpg",
+      linkedin: "https://www.linkedin.com/in/matthew-berk-/",
+      email: "mattberk@umich.edu",
+    },
+
+    {
+      name: "Meghana Paruchuri",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/MeghanaP.jpg",
+      linkedin: "https://www.linkedin.com/in/meghana-paruchuri/",
+      email: "meghpar@umich.edu",
+    },
+
+    {
+      name: "Meera Manek",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/MeeraM.png",
+      linkedin: "https://www.linkedin.com/in/meeramanek/",
+      email: "mmanek@umich.edu",
+    },
+
     {
       name: "Ruthie Yu",
       role: "Senior Advisor",
@@ -275,12 +330,29 @@ const teamMembers = {
       linkedin: "https://www.linkedin.com/in/ruthie-yu/",
       email: "yuruthie@umich.edu",
     },
+
     {
-      name: "Tayla Jankowski",
+      name: "Srivatsav Bendi",
       role: "Senior Advisor",
-      image: "/images/headshots/SA/TaylaJ.jpeg",
-      linkedin: "https://www.linkedin.com/in/tayla-jankowski/",
-      email: "taylajan@umich.edu",
+      image: "/images/headshots/SA/SrivatsavB.jpg",
+      linkedin: "https://www.linkedin.com/in/sribendi/",
+      email: "sribendi@umich.edu",
+    },
+
+    {
+      name: "Viraj Bajoria",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/VirajB.png",
+      linkedin: "https://www.linkedin.com/in/virajbajoria/",
+      email: "vbajoria@umich.edu",
+    },
+
+    {
+      name: "Vivek Chanduri",
+      role: "Senior Advisor",
+      image: "/images/headshots/SA/VivekC.png",
+      linkedin: "https://www.linkedin.com/in/vrchanduri/",
+      email: "vivekrc@umich.edu",
     },
   ],
 }

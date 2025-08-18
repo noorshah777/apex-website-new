@@ -6,11 +6,18 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Our Team", href: "/team" },
+  {
+    name: "Our Team",
+    href: "/team",
+    subItems: [
+      { name: "Members", href: "/team" },
+      { name: "Community", href: "/community" },
+    ],
+  },
   { name: "Alumni", href: "/alumni" },
   { name: "Client Services", href: "/services" },
   { name: "Prospective Members", href: "/join" },
@@ -26,21 +33,20 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          {/* Updated Image component with proper error handling and fallback */}
           <div className="relative h-12 w-32">
             <Image
               src="/images/apex-logo.png"
-              alt="APEX Consulting Group"
+              alt="Apex Consulting Group"
               fill
               style={{ objectFit: "contain" }}
               priority
               onError={(e) => {
-                // Fallback to text if image fails to load
                 const target = e.target as HTMLImageElement
                 target.style.display = "none"
                 const parent = target.parentElement
@@ -54,24 +60,58 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              target={item.isExternal ? "_blank" : undefined}
-              rel={item.isExternal ? "noopener noreferrer" : undefined}
-              className={cn(
-                item.isCallToAction
-                  ? "bg-apex-red text-white px-4 py-2 rounded-md font-bold hover:bg-red-700 transition-colors"
-                  : "text-sm font-medium transition-colors hover:text-red-600",
-                !item.isCallToAction && pathname === item.href
-                  ? "text-red-600"
-                  : !item.isCallToAction
-                    ? "text-muted-foreground"
-                    : "",
+            <div key={item.href} className="relative">
+              {item.subItems ? (
+                <div
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "text-sm font-medium transition-colors hover:text-red-600 flex items-center gap-1",
+                      pathname === "/team" || pathname === "/community" ? "text-red-600" : "text-muted-foreground",
+                    )}
+                  >
+                    {item.name}
+                    <ChevronDown className="h-3 w-3" />
+                  </Link>
+
+                  {activeDropdown === item.name && (
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-red-600 transition-colors"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                  className={cn(
+                    item.isCallToAction
+                      ? "bg-apex-red text-white px-4 py-2 rounded-md font-bold hover:bg-red-700 transition-colors"
+                      : "text-sm font-medium transition-colors hover:text-red-600",
+                    !item.isCallToAction && pathname === item.href
+                      ? "text-red-600"
+                      : !item.isCallToAction
+                        ? "text-muted-foreground"
+                        : "",
+                  )}
+                >
+                  {item.name}
+                </Link>
               )}
-            >
-              {item.name}
-            </Link>
+            </div>
           ))}
         </nav>
 
@@ -85,25 +125,40 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="container py-4 grid gap-4">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={item.isExternal ? "_blank" : undefined}
-                rel={item.isExternal ? "noopener noreferrer" : undefined}
-                className={cn(
-                  item.isCallToAction
-                    ? "bg-apex-red text-white px-4 py-2 rounded-md font-bold hover:bg-red-700 transition-colors text-center"
-                    : "text-sm font-medium transition-colors hover:text-red-600 block py-2",
-                  !item.isCallToAction && pathname === item.href
-                    ? "text-red-600"
-                    : !item.isCallToAction
-                      ? "text-muted-foreground"
-                      : "",
+              <div key={item.href}>
+                <Link
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                  className={cn(
+                    item.isCallToAction
+                      ? "bg-apex-red text-white px-4 py-2 rounded-md font-bold hover:bg-red-700 transition-colors text-center"
+                      : "text-sm font-medium transition-colors hover:text-red-600 block py-2",
+                    !item.isCallToAction && pathname === item.href
+                      ? "text-red-600"
+                      : !item.isCallToAction
+                        ? "text-muted-foreground"
+                        : "",
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+                {item.subItems && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {item.subItems.map((subItem) => (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        className="block text-xs text-muted-foreground hover:text-red-600 py-1 transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
+              </div>
             ))}
           </div>
         </div>
