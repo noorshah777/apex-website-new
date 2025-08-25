@@ -702,7 +702,8 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        {/* Case Studies Section */}
+{/* Case Studies Section */}
+        
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Case Studies</h2>
@@ -710,6 +711,7 @@ export default function ServicesPage() {
               From strategic initiatives to technical projects, explore our diverse portfolio of client work.
             </p>
           </div>
+
 
           <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
             <div className="mb-8 overflow-x-auto">
@@ -791,7 +793,8 @@ export default function ServicesPage() {
                               <Calendar className="h-4 w-4 md:h-5 md:w-5 text-white" />
                               <span>Project Semester: {currentProject.semester}</span>
                             </div>
-                          </div>
+                          </div> 
+
 
                           <div className="p-4 md:p-6 space-y-6 md:space-y-8">
                             {/* Client Overview Section */}
@@ -837,7 +840,7 @@ export default function ServicesPage() {
                             </div>
 
                             {/* Deliverables Section */}
-                            <motion.div
+                              <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.3 }}
@@ -871,10 +874,10 @@ export default function ServicesPage() {
               ))}
             </AnimatePresence>
           </Tabs>
-        </div>
+        </div> 
 
         {/* Our Consulting Process Section */}
-        <div className="container px-4 md:px-6">
+        <div className="container py-16 md:py-24 px-6 md:px-10">
           <div className="mb-16 md:mb-24">
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Consulting Process</h2>
