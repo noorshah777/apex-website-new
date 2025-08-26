@@ -541,9 +541,8 @@ export default function ServicesPage() {
       <PageHeader
         title="Client Services"
         descriptions={[
-          "APEX Consulting Group offers a wide range of consulting services to help businesses achieve their goals.",
-          "Our team delivers data-driven, strategic solutions across various industries and business challenges.",
-          "Explore our service areas and case studies to learn how we can help your organization succeed.",
+          "APEX Consulting Group offers a wide range of services",
+          "Explore our service areas to learn how we can help you succeed.",
         ]}
       />
 

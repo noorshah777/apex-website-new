@@ -29,6 +29,7 @@ import {
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
 import { generateGoogleCalendarLink } from "@/utils/calendar"
+import { useMediaQuery } from "react-responsive" 
 
 // Timeline data with minimalist icons instead of emojis
 const timelineEvents = [
@@ -235,7 +236,7 @@ const analystClassQuotes = [
   },
   {
     alt: "APEX analyst class bonding moments",
-    quote: "My new member semester was an amazing learning experience, both from my new member ed and my project! I loved getting closer to the other members of my analyst class, and I was really interested in my project as it was technical and exactly what I was looking for. APEX gave me an incredible, tight-knit community, which I’m looking forward to spending my time with for years to come!",
+    quote: "My new member semester was an amazing learning experience, both from my new member ed and my project! I loved getting closer to the other members of my analyst class, and I was really interested in my project as it was technical and exactly what I was looking for. APEX gave me an incredible, tight-knit community, which I'm looking forward to spending my time with for years to come!",
     major: "Mechanical Engineering'28, W25 Analyst Class",
     author: "Vansh Baxi",
   },
@@ -248,6 +249,103 @@ const analystClassQuotes = [
 
 ]
 
+function AnalystOverlayCarousel({ analystClassQuotes }) {
+  const [isHovering, setIsHovering] = useState(false)
+  const [hoverQuoteIndex, setHoverQuoteIndex] = useState(0)
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false)
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+
+  // Auto cycle quotes while hovering (desktop only)
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null
+    if (isHovering && !isMobile) {
+      interval = setInterval(() => {
+        setHoverQuoteIndex((prev) =>
+          prev === analystClassQuotes.length - 1 ? 0 : prev + 1
+        )
+      }, 3000)
+    }
+    return () => interval && clearInterval(interval)
+  }, [isHovering, isMobile, analystClassQuotes.length])
+
+  // Handle tap toggle on mobile
+  const handleClick = () => {
+    if (isMobile) {
+      setIsOverlayVisible((prev) => !prev)
+    }
+  }
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-xl h-80 md:h-screen group cursor-pointer"
+      onClick={handleClick}
+      onMouseEnter={!isMobile ? () => setIsHovering(true) : undefined}
+      onMouseLeave={
+        !isMobile
+          ? () => {
+              setIsHovering(false)
+              setHoverQuoteIndex(0)
+            }
+          : undefined
+      }
+    >
+      <Image
+        src="/images/join/hoverimage.jpg"
+        alt="APEX analyst class bonding moment"
+        fill
+        className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition-all duration-300"></div>
+
+      <motion.div
+        className={cn(
+          "absolute inset-0 flex items-center justify-center p-4 md:p-6 transition-opacity duration-300",
+          isOverlayVisible || isHovering ? "opacity-100" : "opacity-0"
+        )}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: isOverlayVisible || isHovering ? 1 : 0,
+          y: isOverlayVisible || isHovering ? 0 : 20,
+        }}
+      >
+        <div className="text-center text-white max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20">
+            <motion.div
+              key={hoverQuoteIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-sm md:text-base leading-relaxed mb-4 italic px-2 md:px-0">
+                "{analystClassQuotes[hoverQuoteIndex].quote}"
+              </p>
+              <p className="text-xs md:text-sm font-medium opacity-90">
+                - {analystClassQuotes[hoverQuoteIndex].author}
+              </p>
+              <p className="text-xs md:text-sm font-medium opacity-90">
+                {analystClassQuotes[hoverQuoteIndex].major}
+              </p>
+            </motion.div>
+
+            {/* Quote indicators */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {analystClassQuotes.map((_, index) => (
+                <div
+                  key={index}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all duration-300",
+                    hoverQuoteIndex === index ? "bg-white" : "bg-white/40"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
 export default function JoinPage() {
   const [activeEvent, setActiveEvent] = useState("meet-the-clubs")
   const [animateTimeline, setAnimateTimeline] = useState(false)
@@ -258,6 +356,7 @@ export default function JoinPage() {
   const [hoverQuoteIndex, setHoverQuoteIndex] = useState(0)
   const timelineRef = useRef<HTMLDivElement>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
   // Set up intersection observer to trigger animation when timeline is in view
   useEffect(() => {
@@ -365,6 +464,7 @@ export default function JoinPage() {
       isAllDay: isAllDayEvent,
     })
   }
+
 
   return (
     <div>
@@ -637,81 +737,25 @@ export default function JoinPage() {
               </div>
             </div>
 
-            {/* Analyst Class Bonding Section */}
-            <div className="my-20">
-              <div className="text-center mb-12">
-                <h2 className="text-2xl font-bold mb-4">And don't forget about your analyst class!</h2>
-                <p className="text-lg text-muted-foreground max-w-6xl mx-auto leading-relaxed">
-                  One of the major draws of joining APEX is having an awesome bonding semester with your analyst class.
-                  You'll form incredible friendships, support each other through challenges, and create memories that
-                  will last a lifetime. Your analyst class becomes your APEX family - the people who will celebrate your
-                  successes, help you grow professionally, and remain lifelong friends long after graduation.
-                </p>
-              </div>
+{/* Analyst Class Bonding Section */}
+<div className="my-20">
+  <div className="text-center mb-12 px-4 md:px-0">
+    <h2 className="text-xl md:text-2xl font-bold mb-4">
+      And don't forget about your analyst class!
+    </h2>
+    <p className="text-base md:text-lg text-muted-foreground max-w-4xl md:max-w-6xl mx-auto leading-relaxed px-2 md:px-0">
+      One of the major draws of joining APEX is having an awesome bonding semester with your analyst class.
+      You'll form incredible friendships, support each other through challenges, and create memories that
+      will last a lifetime. Your analyst class becomes your APEX family - the people who will celebrate your
+      successes, help you grow professionally, and remain lifelong friends long after graduation.
+    </p>
+  </div>
 
-              {/* Analyst Class Image Carousel */}
-              <div className="relative max-w-6xl mx-auto">
-                <div
-                  className="relative overflow-hidden rounded-xl h-screen group cursor-pointer"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => {
-                    setIsHovering(false)
-                    setHoverQuoteIndex(0) // Reset to first quote when not hovering
-                  }}
-                >
-                  <Image
-                    src="/images/join/hoverimage.jpg"
-                    alt="APEX analyst class bonding moment"
-                    fill
-                    className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition-all duration-300"></div>
-                  <motion.div
-                    className="
-                      absolute inset-0 flex items-center justify-center p-6 
-                      opacity-100 md:opacity-0 md:group-hover:opacity-100 
-                      transition-opacity duration-300
-                    "
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                  >
-                    <div className="text-center text-white">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                        <motion.div
-                          key={hoverQuoteIndex}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <p className="text-base leading-relaxed mb-4 italic">
-                            "{analystClassQuotes[hoverQuoteIndex].quote}"
-                          </p>
-                          <p className="text-sm font-medium opacity-90">
-                            - {analystClassQuotes[hoverQuoteIndex].author}
-                          </p>
-                          <p className="text-sm font-medium opacity-90">
-                            {analystClassQuotes[hoverQuoteIndex].major}
-                          </p>
-                        </motion.div>
-
-                        {/* Quote indicators */}
-                        <div className="flex justify-center mt-4 space-x-2">
-                          {analystClassQuotes.map((_, index) => (
-                            <div
-                              key={index}
-                              className={cn(
-                                "w-2 h-2 rounded-full transition-all duration-300",
-                                hoverQuoteIndex === index ? "bg-white" : "bg-white/40",
-                              )}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+  {/* Analyst Class Image Carousel */}
+  <div className="relative max-w-6xl mx-auto px-4 md:px-0">
+    <AnalystOverlayCarousel analystClassQuotes={analystClassQuotes} />
+  </div>
+</div>
 
             {/* Application Process - Carousel Style */}
             <div className="my-20">

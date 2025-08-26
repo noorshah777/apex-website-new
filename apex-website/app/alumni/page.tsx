@@ -57,7 +57,7 @@ const testimonials = [
     year: "2025",
     image: "/images/alumni-testimonials/RonithG.jpg",
     quote:
-      "APEX has been one of the most meaningful parts of my college journey—equal parts community, challenge, and growth. Working on real client projects with my team gave me the chance to dive deep into product strategy, pitch tangible solutions, and learn what it means to collaborate under pressure. From late-night working sessions to spontaneous team dinners, the experience pushed me far beyond the classroom. I not only gained exposure to real-world problem-solving but also built friendships and memories that made every moment unforgettable. Looking back, it’s clear that the laughs, the hard work, and the incredible people shaped my understanding of product management and inspired me to keep growing.",
+      "APEX has been one of the most meaningful parts of my college journey. Working on real client projects taught me how to solve complex problems, collaborate under pressure, and deliver results—skills that translate directly to software engineering. From late-night work sessions to spontaneous team dinners, the experience pushed me beyond the classroom and left me with lasting friendships and memories.",
     },
 
   {
@@ -180,9 +180,9 @@ export default function AlumniPage() {
       <PageHeader
         title="Our Alumni Network"
         descriptions={[
-          "APEX Consulting Group alumni have gone on to work at top companies across various industries.",
-          "Explore where our former members are making an impact in consulting, finance, and technology.",
-          "Our alumni network continues to grow and support current members through mentorship and opportunities.",
+          "APEX alumni have gone on to work at top companies",
+          "Explore where our former members are making an impact",
+          "Our alumni network continues to grow each day",
         ]}
       />
 

@@ -205,9 +205,9 @@ export default function CommunityPage() {
       <PageHeader
         title="We Love Our APEX Family!"
         descriptions={[
-          "From our annual Chicago trek, to retreat, to tailgates, to late-night study sessions",
-          "These are the moments that make our hearts full and our bonds unbreakable.",
-          "...and all the beautiful moments in between that make us who we are!",
+          "Learn A Bit More About What Makes APEX Special",
+          "From Cider Mill to Chicago, We Cherish Every Moment",
+          "APEX's Bonds Are Unbreakable",
         ]}
       />
 

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Linkedin, Mail } from "lucide-react"
 import PageHeader from "@/components/page-header"
 
+
 // Team Data
 const teamMembers = {
   eboard: [
@@ -360,95 +361,110 @@ const teamMembers = {
 export default function TeamPage() {
   const [currentRole, setCurrentRole] = useState("eboard")
 
+  const roles = [
+    { key: "eboard", label: "Executive Board" },
+    { key: "projectManagers", label: "Project Managers" },
+    { key: "businessAnalystLeads", label: "Business Analyst Leads" },
+    { key: "businessAnalysts", label: "Business Analysts" },
+    { key: "seniorAdvisors", label: "Senior Advisors" },
+  ]
+
   return (
     <div>
       <PageHeader
         title="Our Team"
-        descriptions={[
-          "Meet the Wonderful Minds Behind APEX Consulting",
-        ]}
+        descriptions={["Meet the Wonderful Minds Behind APEX Consulting", "Get to Know Us", "This is APEX"]}
       />
 
       <div className="py-10 md:py-16">
         <div className="container px-4 md:px-6">
-          <div className="flex justify-center mb-8 overflow-x-auto">
+          {/* Desktop Tabs */}
+          <div className="hidden md:flex justify-center mb-8 overflow-x-auto">
             <div className="inline-flex items-center rounded-md border border-input bg-background p-1 text-muted-foreground">
-              <button
-                onClick={() => setCurrentRole("eboard")}
-                className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-                  currentRole === "eboard" ? "bg-apex-red text-white shadow-sm" : ""
-                }`}
-              >
-                Executive Board
-              </button>
-              <button
-                onClick={() => setCurrentRole("projectManagers")}
-                className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-                  currentRole === "projectManagers" ? "bg-apex-red text-white shadow-sm" : ""
-                }`}
-              >
-                Project Managers
-              </button>
-              <button
-                onClick={() => setCurrentRole("businessAnalystLeads")}
-                className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-                  currentRole === "businessAnalystLeads" ? "bg-apex-red text-white shadow-sm" : ""
-                }`}
-              >
-                Business Analyst Leads
-              </button>
-              <button
-                onClick={() => setCurrentRole("businessAnalysts")}
-                className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-                  currentRole === "businessAnalysts" ? "bg-apex-red text-white shadow-sm" : ""
-                }`}
-              >
-                Business Analysts
-              </button>
-              <button
-                onClick={() => setCurrentRole("seniorAdvisors")}
-                className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${
-                  currentRole === "seniorAdvisors" ? "bg-apex-red text-white shadow-sm" : ""
-                }`}
-              >
-                Senior Advisors
-              </button>
+              {roles.map((role) => (
+                <button
+                  key={role.key}
+                  onClick={() => setCurrentRole(role.key)}
+                  className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all ${
+                    currentRole === role.key
+                      ? "bg-apex-red text-white shadow-sm"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {role.label}
+                </button>
+              ))}
             </div>
           </div>
 
+          {/* Mobile Dropdown */}
+          <div className="md:hidden mb-8">
+            <select
+              className="w-full border border-input rounded-md bg-background p-2 text-sm"
+              value={currentRole}
+              onChange={(e) => setCurrentRole(e.target.value)}
+            >
+              {roles.map((role) => (
+                <option key={role.key} value={role.key}>
+                  {role.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Team Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {teamMembers[currentRole as keyof typeof teamMembers].map((member, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-all">
-                <div className="relative w-full h-[500px]">
-                <Image
-                  src={member.image || "/placeholder.svg"}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top rounded-t-md"
-                />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="icon" className="bg-white text-black" asChild>
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                          <Linkedin className="h-4 w-4" />
-                          <span className="sr-only">LinkedIn</span>
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="icon" className="bg-white text-black" asChild>
-                        <a href={`mailto:${member.email}`}>
-                          <Mail className="h-4 w-4" />
-                          <span className="sr-only">Email</span>
-                        </a>
-                      </Button>
+            {teamMembers[currentRole as keyof typeof teamMembers].map(
+              (member, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden group hover:shadow-lg transition-all"
+                >
+                  <div className="relative w-full h-[500px]">
+                    <Image
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top rounded-t-md"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-4">
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="bg-white text-black"
+                          asChild
+                        >
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Linkedin className="h-4 w-4" />
+                            <span className="sr-only">LinkedIn</span>
+                          </a>
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="bg-white text-black"
+                          asChild
+                        >
+                          <a href={`mailto:${member.email}`}>
+                            <Mail className="h-4 w-4" />
+                            <span className="sr-only">Email</span>
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-lg">{member.name}</CardTitle>
-                  <CardDescription>{member.role}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+                  <CardHeader className="p-4">
+                    <CardTitle className="text-lg">{member.name}</CardTitle>
+                    <CardDescription>{member.role}</CardDescription>
+                  </CardHeader>
+                </Card>
+              )
+            )}
           </div>
         </div>
       </div>
