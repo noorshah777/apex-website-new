@@ -55,7 +55,7 @@ const testimonials = [
     year: "Winter 2025",
     image: "/images/client-testimonials/deepgram.png",
     quote:
-      "I want to sincerely thank the APEX Consulting team for their exceptional work with Deepgram. The strategic insights and market analysis they delivered while balancing your academic workload were impressive. APEX’s fresh perspectives will surely translate into actionable solutions. The professional quality of APEX’s work speaks volumes about the team’s talents.",
+      "I want to sincerely thank the APEX Consulting team for their exceptional work with Deepgram. The strategic insights and market analysis they delivered while balancing your academic workload were impressive. APEX's fresh perspectives will surely translate into actionable solutions. The professional quality of APEX's work speaks volumes about the team's talents.",
   },
 
   {
@@ -712,9 +712,55 @@ export default function ServicesPage() {
             </p>
           </div>
 
+          {/* Mobile Dropdown */}
+          <div className="md:hidden mb-8">
+            <div className="relative">
+              <button
+                onClick={() => setShowDropdown(showDropdown === 'services' ? null : 'services')}
+                className="flex items-center justify-between w-full p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-apex-red">
+                    {services.find(s => s.id === activeTab)?.icon}
+                  </span>
+                  <span className="font-medium">
+                    {services.find(s => s.id === activeTab)?.title} Consulting
+                  </span>
+                </div>
+                <ChevronDown
+                  className={`h-5 w-5 transition-transform ${
+                    showDropdown === 'services' ? "transform rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {showDropdown === 'services' && (
+                <div className="absolute z-20 w-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2">
+                  {services.map((service) => (
+                    <button
+                      key={service.id}
+                      onClick={() => {
+                        handleTabChange(service.id)
+                        setShowDropdown(null)
+                      }}
+                      className={`w-full text-left px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-3 ${
+                        activeTab === service.id
+                          ? "bg-gray-100 dark:bg-gray-700 font-medium"
+                          : ""
+                      }`}
+                    >
+                      <span className="text-apex-red">{service.icon}</span>
+                      <span>{service.title}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
 
           <Tabs defaultValue="marketing" className="w-full" onValueChange={handleTabChange}>
-            <div className="mb-8 overflow-x-auto">
+            {/* Desktop Tabs */}
+            <div className="mb-8 overflow-x-auto hidden md:block">
               <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full min-w-[600px] md:min-w-0">
                 {services.map((service) => (
                   <TabsTrigger
@@ -899,14 +945,27 @@ export default function ServicesPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true, margin: "-100px" }}
                   >
+                    {/* Mobile: Icon first, then text */}
+                    <div className="flex flex-col items-center text-center md:hidden">
+                      <div className="relative flex-shrink-0 mb-4">
+                        <div className="absolute inset-0 bg-gray-400 rounded-full opacity-20 animate-ping"></div>
+                        <div className="relative bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg z-20">
+                          {step.icon}
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-muted-foreground text-base leading-relaxed">{step.description}</p>
+                    </div>
+
+                    {/* Desktop: Original layout */}
                     <div
-                      className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} text-center md:text-left`}
+                      className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} text-center md:text-left hidden md:block`}
                     >
                       <h3 className="text-xl md:text-2xl font-bold mb-3">{step.title}</h3>
                       <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{step.description}</p>
                     </div>
 
-                    <div className="relative flex-shrink-0">
+                    <div className="relative flex-shrink-0 hidden md:block">
                       <div className="absolute inset-0 bg-gray-400 rounded-full opacity-20 animate-ping"></div>
                       <div className="relative bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-full w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow-lg z-20">
                         {step.icon}

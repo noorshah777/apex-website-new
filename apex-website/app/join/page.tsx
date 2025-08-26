@@ -666,9 +666,12 @@ export default function JoinPage() {
                     className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 transition-all duration-300"></div>
-
                   <motion.div
-                    className="absolute inset-0 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="
+                      absolute inset-0 flex items-center justify-center p-6 
+                      opacity-100 md:opacity-0 md:group-hover:opacity-100 
+                      transition-opacity duration-300
+                    "
                     initial={{ opacity: 0, y: 20 }}
                     whileHover={{ opacity: 1, y: 0 }}
                   >
@@ -709,7 +712,6 @@ export default function JoinPage() {
                 </div>
               </div>
             </div>
-
 
             {/* Application Process - Carousel Style */}
             <div className="my-20">
