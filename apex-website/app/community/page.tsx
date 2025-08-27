@@ -297,7 +297,7 @@ export default function CommunityPage() {
         </div>
       </div>
 
-      <div className="relative h-screen overflow-hidden group">
+<div className="relative h-[60vh] md:h-screen overflow-hidden group">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -310,29 +310,29 @@ export default function CommunityPage() {
         </div>
 
         {/* Hover Overlay */}
-        <motion.div className="absolute inset-0 bg-black/70 flex items-center justify-center p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="text-center text-white max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">{selectedEvent.title}</h3>
+        <motion.div className="absolute inset-0 bg-black/70 flex items-center justify-center p-4 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="text-center text-white w-full max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-8 border border-white/20 max-h-full overflow-y-auto">
+              <h3 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">{selectedEvent.title}</h3>
 
-              <div className="flex items-center justify-center gap-6 mb-6 text-lg">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-4 md:mb-6 text-sm md:text-lg">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
+                  <Calendar className="w-4 h-4 md:w-5 md:h-5" />
                   <span>{selectedEvent.date}</span>
                 </div>
-                <span>|</span>
+                <span className="hidden sm:inline">|</span>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
+                  <MapPin className="w-4 h-4 md:w-5 md:h-5" />
                   <span>{selectedEvent.location}</span>
                 </div>
               </div>
 
-              <p className="text-lg leading-relaxed opacity-90 max-w-2xl mx-auto">{selectedEvent.description}</p>
+              <p className="text-sm md:text-lg leading-relaxed opacity-90 max-w-2xl mx-auto mb-4 md:mb-0">{selectedEvent.description}</p>
 
-              <div className="mt-8 pt-6 border-t border-white/20">
-                <Quote className="w-8 h-8 mx-auto mb-4 opacity-60" />
-                <p className="text-xl italic mb-3">"{selectedEvent.memberQuotes[0]?.quote}"</p>
-                <p className="text-sm opacity-75">- {selectedEvent.memberQuotes[0]?.name}</p>
+              <div className="mt-4 md:mt-8 pt-4 md:pt-6 border-t border-white/20">
+                <Quote className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-3 md:mb-4 opacity-60" />
+                <p className="text-base md:text-xl italic mb-2 md:mb-3">"{selectedEvent.memberQuotes[0]?.quote}"</p>
+                <p className="text-xs md:text-sm opacity-75">- {selectedEvent.memberQuotes[0]?.name}</p>
               </div>
             </div>
           </div>
