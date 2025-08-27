@@ -4,7 +4,14 @@ import { useState } from "react"
 import Image from "next/image"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Linkedin, Mail } from "lucide-react"
+import { Linkedin, Mail, Users } from "lucide-react"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import PageHeader from "@/components/page-header"
 
 
@@ -397,20 +404,24 @@ export default function TeamPage() {
             </div>
           </div>
 
-          {/* Mobile Dropdown */}
-          <div className="md:hidden mb-8">
-            <select
-              className="w-full border border-input rounded-md bg-background p-2 text-sm"
-              value={currentRole}
-              onChange={(e) => setCurrentRole(e.target.value)}
-            >
-              {roles.map((role) => (
-                <option key={role.key} value={role.key}>
-                  {role.label}
-                </option>
-              ))}
-            </select>
+{/* Mobile Dropdown */}
+<div className="md:hidden mb-8">
+  <Select value={currentRole} onValueChange={setCurrentRole}>
+    <SelectTrigger className="w-full border-1 border-gray-400 rounded-md bg-white p-4 text-base text-black">
+      <SelectValue placeholder="Select a role" />
+    </SelectTrigger>
+    <SelectContent>
+      {roles.map((role) => (
+        <SelectItem key={role.key} value={role.key}>
+          <div className="flex items-center gap-2">
+            <Users className="w-4 h-4 text-apex-red" />
+            <span>{role.label}</span>
           </div>
+        </SelectItem>
+      ))}
+    </SelectContent>
+  </Select>
+</div>
 
           {/* Team Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
