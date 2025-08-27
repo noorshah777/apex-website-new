@@ -24,7 +24,7 @@ const navItems = [
   { name: "Contact Us", href: "/contact" },
   {
     name: "Apply Now",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
     isExternal: true,
     isCallToAction: true,
   },

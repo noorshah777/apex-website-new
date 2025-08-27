@@ -164,7 +164,7 @@ export default function EnhancedFooter() {
                 providing strategic solutions to businesses and organizations.
               </p>
               <div className="flex space-x-4 mt-6">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform" className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform" className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-color">
                   <PencilIcon className="h-5 w-5" />
                   <span className="sr-only">PencilIcon</span>
                 </Link>
@@ -176,7 +176,7 @@ export default function EnhancedFooter() {
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">Linkedin</span>
                 </Link>
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSc-mBvMGKgyuG-h7AomOOVRq8SSRm9jknVB22Qy_SHFWRNFCw/viewform" className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLScSxmPjVcyj5ZwmD-8Sb0PEnjJR6MMucXLPYTq9Ejp-LRPSbQ/viewform" className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors">
                   <Mail className="h-5 w-5" />
                   <span className="sr-only">Mail</span>
                 </Link>

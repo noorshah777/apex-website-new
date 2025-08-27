@@ -36,9 +36,9 @@ const timelineEvents = [
   {
     id: "meet-the-clubs",
     title: "BBA Meet the Clubs",
-    date: "Thursday January 16, 2025",
-    time: "6:00 PM - 9:00 PM",
-    location: "Ross Basement - Table 41",
+    date: "Wednesday August 27, 2025",
+    time: "5:30 PM - 7:30 PM",
+    location: "TBD",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
     icon: <Building className="h-5 w-5 font-bold" />,
@@ -46,11 +46,11 @@ const timelineEvents = [
   {
     id: "application-release",
     title: "Application Release",
-    date: "Friday, January 17, 2025",
-    time: "12:00 PM",
+    date: "Thursday, September 4, 2025",
+    time: "8:00 AM",
     location: "Online",
     description: "Applications for APEX Consulting Group will be available on our website.",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
     linkText: "Apply here",
     active: false,
     icon: <FileText className="h-5 w-5 font-bold" />,
@@ -58,8 +58,8 @@ const timelineEvents = [
   {
     id: "mass-meeting",
     title: "Mass Meeting",
-    date: "Sunday, January 17, 2025",
-    time: "7:00 PM - 8:30 PM",
+    date: "Tuesday, September 9, 2025",
+    time: "8:30 PM - 9:30 PM",
     location: "Blau Colloquium",
     description: "Learn more about APEX Consulting Group, our projects, and the application process",
     active: false,
@@ -68,9 +68,9 @@ const timelineEvents = [
   {
     id: "speed-dating",
     title: "Speed Dating",
-    date: "Saturday, January 25, 2025",
-    time: "1:00 PM - 3:00 PM",
-    location: "Locations vary, reference sign up",
+    date: "Sunday, September 14, 2025",
+    time: "4:00 PM - 6:00 PM",
+    location: "R0210",
     description: "Meet current members and learn about their experiences with APEX. ",
     url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-54388586-apex#/",
     linkInDescription: "Sign up required",
@@ -80,9 +80,9 @@ const timelineEvents = [
   {
     id: "dei-panel",
     title: "DEI Career Panel + Networking",
-    date: "Monday January 27, 2025",
-    time: "7:00 PM - 8:30 PM",
-    location: "B1580",
+    date: "Monday, September 15, 2025",
+    time: "8:00 PM - 9:30 PM",
+    location: "TBD",
     description: "Learn about our commitment to diversity, equity, and inclusion",
     active: false,
     icon: <Users className="h-5 w-5 font-bold" />,
@@ -90,7 +90,7 @@ const timelineEvents = [
   {
     id: "application-office-hours",
     title: "Application Office Hours",
-    date: "Tuesday, January 28, 2025",
+    date: "Wednesday, September 17, 2025",
     time: "4:00 PM - 6:00 PM",
     location: "Zoom",
     description: "Get help with your application from current members ",
@@ -106,7 +106,7 @@ const timelineEvents = [
     time: "11:59 PM",
     location: "Online",
     description: "All applications must be submitted by this time. ",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
     linkText: "Apply here",
     active: false,
     icon: <Clock className="h-5 w-5 font-bold" />,
@@ -114,7 +114,7 @@ const timelineEvents = [
   {
     id: "case-workshop",
     title: "Case Workshop",
-    date: "Wednesday, January 29, 2025",
+    date: "Thursday, September 18, 2025",
     time: "7:00 PM - 8:00 PM",
     location: "See Invitation",
     description: "Learn about case interviews and practice with current members. Invite only event",
@@ -124,7 +124,7 @@ const timelineEvents = [
   {
     id: "interviews",
     title: "Interviews",
-    date: "Friday, January 31, 2025 - Sunday, February 2, 2025",
+    date: "Friday, September 19, 2025 - Sunday, September 21, 2025",
     time: "Various Times",
     location: "Ross School of Business",
     description: "Selected candidates will be invited for interviews.",
@@ -477,7 +477,7 @@ export default function JoinPage() {
         ]}
         ctaButton={{
           text: "Apply Now",
-          href: "https://docs.google.com/forms/d/e/1FAIpQLSf6rtQgTm84YtamSkkP38ruzoLwPCTaRcb1BvZRWw6EuQADLg/closedform",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
           variant: "default",
         }}
       />
