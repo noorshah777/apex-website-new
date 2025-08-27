@@ -91,7 +91,7 @@ const timelineEvents = [
     id: "application-office-hours",
     title: "Application Office Hours",
     date: "Wednesday, September 17, 2025",
-    time: "4:00 PM - 6:00 PM",
+    time: "4:00 PM - 5:30 PM",
     location: "Zoom",
     description: "Get help with your application from current members ",
     url: "https://umich.zoom.us/j/6036940179",
