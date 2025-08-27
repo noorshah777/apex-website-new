@@ -38,7 +38,7 @@ const timelineEvents = [
     title: "BBA Meet the Clubs",
     date: "Wednesday August 27, 2025",
     time: "5:30 PM - 7:30 PM",
-    location: "TBD",
+    location: "Ross Basement, Table 44",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
     icon: <Building className="h-5 w-5 font-bold" />,
@@ -79,7 +79,7 @@ const timelineEvents = [
   },
   {
     id: "dei-panel",
-    title: "DEI Career Panel + Networking",
+    title: "Professional Career Panel",
     date: "Monday, September 15, 2025",
     time: "8:00 PM - 9:30 PM",
     location: "TBD",
