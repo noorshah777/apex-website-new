@@ -94,7 +94,7 @@ const timelineEvents = [
     time: "4:00 PM - 6:00 PM",
     location: "Zoom",
     description: "Get help with your application from current members ",
-    url: "https://umich.zoom.us/j/7991518779#success",
+    url: "https://umich.zoom.us/j/6036940179",
     linkInDescription: "via Zoom",
     active: false,
     icon: <HelpCircle className="h-5 w-5 font-bold" />,
