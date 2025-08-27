@@ -277,7 +277,7 @@ function AnalystOverlayCarousel({ analystClassQuotes }) {
 
   return (
     <div
-      className="relative overflow-hidden rounded-xl h-80 md:h-screen group cursor-pointer"
+      className="relative overflow-hidden rounded-xl h-[60vh] md:h-80 lg:h-screen group cursor-pointer"
       onClick={handleClick}
       onMouseEnter={!isMobile ? () => setIsHovering(true) : undefined}
       onMouseLeave={
@@ -299,7 +299,7 @@ function AnalystOverlayCarousel({ analystClassQuotes }) {
 
       <motion.div
         className={cn(
-          "absolute inset-0 flex items-center justify-center p-4 md:p-6 transition-opacity duration-300",
+          "absolute inset-0 flex items-center justify-center p-3 md:p-6 transition-opacity duration-300",
           isOverlayVisible || isHovering ? "opacity-100" : "opacity-0"
         )}
         initial={{ opacity: 0, y: 20 }}
@@ -308,15 +308,15 @@ function AnalystOverlayCarousel({ analystClassQuotes }) {
           y: isOverlayVisible || isHovering ? 0 : 20,
         }}
       >
-        <div className="text-center text-white max-w-2xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20">
+        <div className="text-center text-white w-full max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-6 border border-white/20 max-h-full overflow-y-auto">
             <motion.div
               key={hoverQuoteIndex}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm md:text-base leading-relaxed mb-4 italic px-2 md:px-0">
+              <p className="text-xs md:text-sm lg:text-base leading-relaxed mb-3 md:mb-4 italic px-1 md:px-2">
                 "{analystClassQuotes[hoverQuoteIndex].quote}"
               </p>
               <p className="text-xs md:text-sm font-medium opacity-90">
@@ -328,12 +328,12 @@ function AnalystOverlayCarousel({ analystClassQuotes }) {
             </motion.div>
 
             {/* Quote indicators */}
-            <div className="flex justify-center mt-4 space-x-2">
+            <div className="flex justify-center mt-3 md:mt-4 space-x-2">
               {analystClassQuotes.map((_, index) => (
                 <div
                   key={index}
                   className={cn(
-                    "w-2 h-2 rounded-full transition-all duration-300",
+                    "w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-300",
                     hoverQuoteIndex === index ? "bg-white" : "bg-white/40"
                   )}
                 />
