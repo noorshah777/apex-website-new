@@ -36,7 +36,7 @@ const timelineEvents = [
   {
     id: "meet-the-clubs",
     title: "BBA Meet the Clubs",
-    date: "Wednesday August 27, 2025",
+    date: "September 3, 2025",
     time: "5:30 PM - 7:30 PM",
     location: "Ross Basement, Table 44",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
