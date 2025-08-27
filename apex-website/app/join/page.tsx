@@ -102,7 +102,7 @@ const timelineEvents = [
   {
     id: "app-due",
     title: "Application Deadline",
-    date: "Tuesday, January 28, 2025",
+    date: "Wednesday, September 17, 2025",
     time: "11:59 PM",
     location: "Online",
     description: "All applications must be submitted by this time. ",
