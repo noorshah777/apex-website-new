@@ -178,7 +178,7 @@ export default function CommunityPage() {
     if (autoplay) {
       autoplayRef.current = setInterval(() => {
         nextTestimonial()
-      }, 5000)
+      }, 10000)
     }
 
     return () => {

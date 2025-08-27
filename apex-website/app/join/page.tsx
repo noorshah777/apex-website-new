@@ -263,7 +263,7 @@ function AnalystOverlayCarousel({ analystClassQuotes }) {
         setHoverQuoteIndex((prev) =>
           prev === analystClassQuotes.length - 1 ? 0 : prev + 1
         )
-      }, 3000)
+      }, 10000)
     }
     return () => interval && clearInterval(interval)
   }, [isHovering, isMobile, analystClassQuotes.length])
@@ -737,25 +737,25 @@ export default function JoinPage() {
               </div>
             </div>
 
-{/* Analyst Class Bonding Section */}
-<div className="my-20">
-  <div className="text-center mb-12 px-4 md:px-0">
-    <h2 className="text-xl md:text-2xl font-bold mb-4">
-      And don't forget about your analyst class!
-    </h2>
-    <p className="text-base md:text-lg text-muted-foreground max-w-4xl md:max-w-6xl mx-auto leading-relaxed px-2 md:px-0">
-      One of the major draws of joining APEX is having an awesome bonding semester with your analyst class.
-      You'll form incredible friendships, support each other through challenges, and create memories that
-      will last a lifetime. Your analyst class becomes your APEX family - the people who will celebrate your
-      successes, help you grow professionally, and remain lifelong friends long after graduation.
-    </p>
-  </div>
+            {/* Analyst Class Bonding Section */}
+            <div className="my-20">
+              <div className="text-center mb-12 px-4 md:px-0">
+                <h2 className="text-xl md:text-2xl font-bold mb-4">
+                  And don't forget about your analyst class!
+                </h2>
+                <p className="text-base md:text-lg text-muted-foreground max-w-4xl md:max-w-6xl mx-auto leading-relaxed px-2 md:px-0">
+                  One of the major draws of joining APEX is having an awesome bonding semester with your analyst class.
+                  You'll form incredible friendships, support each other through challenges, and create memories that
+                  will last a lifetime. Your analyst class becomes your APEX family - the people who will celebrate your
+                  successes, help you grow professionally, and remain lifelong friends long after graduation.
+                </p>
+              </div>
 
-  {/* Analyst Class Image Carousel */}
-  <div className="relative max-w-6xl mx-auto px-4 md:px-0">
-    <AnalystOverlayCarousel analystClassQuotes={analystClassQuotes} />
-  </div>
-</div>
+              {/* Analyst Class Image Carousel */}
+              <div className="relative max-w-6xl mx-auto px-4 md:px-0">
+                <AnalystOverlayCarousel analystClassQuotes={analystClassQuotes} />
+              </div>
+            </div>
 
             {/* Application Process - Carousel Style */}
             <div className="my-20">
@@ -801,7 +801,7 @@ export default function JoinPage() {
 
                         {currentStep === 0 && (
                           <Button asChild className="mt-6 bg-apex-red hover:bg-red-700">
-                            <Link href="#" className="flex items-center gap-2">
+                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform" className="flex items-center gap-2">
                               Apply Now <ArrowRight className="h-4 w-4" />
                             </Link>
                           </Button>
