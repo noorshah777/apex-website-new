@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import TypingEffect from "@/components/typing-effect"
 import ParticlesBackground from "@/components/particles-background"
 import ScrollSection from "@/components/scroll-section"
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   const mottos = [

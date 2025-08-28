@@ -26,6 +26,7 @@ import {
 import PageHeader from "@/components/page-header"
 import { motion, AnimatePresence } from "framer-motion"
 import TypingEffect from "@/components/typing-effect"
+import { Analytics } from "@vercel/analytics/next"
 
 const testimonials = [
   {

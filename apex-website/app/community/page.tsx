@@ -7,6 +7,7 @@ import { Calendar, MapPin, Quote, Users, Coffee, Camera, Music, Heart, Star, Tro
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import {Button} from "@/components/ui/button"
+import { Analytics } from "@vercel/analytics/next"
 
 const communityEvents = [
   {

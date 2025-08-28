@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
+import { Analytics } from "@vercel/analytics/next"
 
 // Alumni testimonials
 const testimonials = [
