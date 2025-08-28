@@ -13,7 +13,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import PageHeader from "@/components/page-header"
-import { Analytics } from "@vercel/analytics/next"
 
 
 // Team Data

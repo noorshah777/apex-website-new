@@ -6,6 +6,8 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import EnhancedFooter from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from '@vercel/analytics/next';
+
 
 
 // Load Inter and Dancing Script fonts
@@ -40,6 +42,7 @@ export default function RootLayout({
             <EnhancedFooter />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )

@@ -13,7 +13,6 @@ import { Instagram, Linkedin, Mail, MapPin, Music } from "lucide-react"
 import Link from "next/link"
 import PageHeader from "@/components/page-header"
 import { submitContactForm } from "@/actions/contact-form"
-import { Analytics } from "@vercel/analytics/next"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

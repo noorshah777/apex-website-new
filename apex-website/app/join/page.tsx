@@ -30,7 +30,6 @@ import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
 import { generateGoogleCalendarLink } from "@/utils/calendar"
 import { useMediaQuery } from "react-responsive" 
-import { Analytics } from "@vercel/analytics/next"
 
 
 // Timeline data with minimalist icons instead of emojis
