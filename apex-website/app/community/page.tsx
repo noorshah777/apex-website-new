@@ -297,7 +297,7 @@ export default function CommunityPage() {
         </div>
       </div>
 
-<div className="relative h-[60vh] md:h-screen overflow-hidden group">
+      <div className="relative h-[60vh] md:h-screen overflow-hidden group">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -309,30 +309,34 @@ export default function CommunityPage() {
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
-        {/* Hover Overlay */}
-        <motion.div className="absolute inset-0 bg-black/70 flex items-center justify-center p-4 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="text-center text-white w-full max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-8 border border-white/20 max-h-full overflow-y-auto">
-              <h3 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">{selectedEvent.title}</h3>
+        {/* Hover Overlay - Now properly contained */}
+        <motion.div className="absolute inset-0 bg-black/70 flex items-center justify-center p-2 sm:p-4 md:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="text-center text-white w-full h-full flex flex-col justify-center max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-8 border border-white/20 max-h-full overflow-y-auto my-auto">
+              <h3 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4">{selectedEvent.title}</h3>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 mb-4 md:mb-6 text-sm md:text-lg">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 md:w-5 md:h-5" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-6 mb-3 sm:mb-4 md:mb-6 text-xs sm:text-sm md:text-lg">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                   <span>{selectedEvent.date}</span>
                 </div>
                 <span className="hidden sm:inline">|</span>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 md:w-5 md:h-5" />
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                   <span>{selectedEvent.location}</span>
                 </div>
               </div>
 
-              <p className="text-sm md:text-lg leading-relaxed opacity-90 max-w-2xl mx-auto mb-4 md:mb-0">{selectedEvent.description}</p>
+              <p className="text-xs sm:text-sm md:text-lg leading-relaxed opacity-90 max-w-2xl mx-auto mb-3 sm:mb-4 md:mb-6 line-clamp-4 sm:line-clamp-none">
+                {selectedEvent.description}
+              </p>
 
-              <div className="mt-4 md:mt-8 pt-4 md:pt-6 border-t border-white/20">
-                <Quote className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-3 md:mb-4 opacity-60" />
-                <p className="text-base md:text-xl italic mb-2 md:mb-3">"{selectedEvent.memberQuotes[0]?.quote}"</p>
-                <p className="text-xs md:text-sm opacity-75">- {selectedEvent.memberQuotes[0]?.name}</p>
+              <div className="mt-3 sm:mt-4 md:mt-8 pt-3 sm:pt-4 md:pt-6 border-t border-white/20">
+                <Quote className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 mx-auto mb-2 sm:mb-3 md:mb-4 opacity-60" />
+                <p className="text-xs sm:text-base md:text-xl italic mb-1 sm:mb-2 md:mb-3 line-clamp-3 sm:line-clamp-none">
+                  "{selectedEvent.memberQuotes[0]?.quote}"
+                </p>
+                <p className="text-xs sm:text-sm opacity-75">- {selectedEvent.memberQuotes[0]?.name}</p>
               </div>
             </div>
           </div>
