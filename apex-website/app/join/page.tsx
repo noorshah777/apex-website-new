@@ -73,7 +73,7 @@ const timelineEvents = [
     time: "4:00 PM - 6:00 PM",
     location: "R0210",
     description: "Meet current members and learn about their experiences with APEX. ",
-    url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-54388586-apex#/",
+    url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-58173929-apex#/",
     linkInDescription: "Sign up required",
     active: false,
     icon: <MessageSquare className="h-5 w-5 font-bold" />,
