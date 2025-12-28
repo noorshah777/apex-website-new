@@ -80,6 +80,26 @@ const testimonials = [
       "I’m so thankful to have had the APEX community with me during my time in college. Even though I decided to not go into consulting, working directly with a real client, leading a team as a project manager, and learning how to strategically solve business problems, was invaluable in my role as a program manager. I also wouldn’t have known I could go into program management at a tech company if it wasn’t for an APEX alumni who taught me all about it. I can say without a doubt that I would not be where I am today personally or professionally without the wonderful people of APEX Consulting Group."
     },
 
+  {
+    name: "Riya Chakravarty",
+    role: "Software Engineer",
+    company: "Palantir",
+    year: "2025",
+    image: "/images/alumni-testimonials/RiyaC.jpg",
+    quote:
+      "As a computer science student, I’ve had many opportunities to develop my technical skills through coursework and projects. However, through APEX, I found a tight-knit community of diverse, driven individuals who would challenge and support me in new ways. APEX helped me grow my soft skills by working directly with clients to make a real-world impact and taught me how to break down large-scale problems into smaller, solvable ones. I also got to explore industries I’ve always been curious about—such as telehealth and pharmaceuticals. APEX has not only provided me with invaluable project experience but also helped me build relationships and skills that will continue to shape my career and personal growth."
+    },
+
+  {
+    name: "Taewoong Seo",
+    role: "Product Manager",
+    company: "CareEvolution",
+    year: "2025",
+    image: "/images/alumni-testimonials/TaewoongS.jpg",
+    quote:
+      "APEX Consulting Group defined my professional path and gave me early exposure to real-world consulting and business challenges. I worked on a wide variety of projects — from revamping customer experience for a local restaurant chain in Ann Arbor, to helping a solar vehicle startup secure funding, streamlining operations for a pasta manufacturer, and finding creative ways to cut costs for a clothing brand. These experiences gave me practical skills, exposure, and confidence I wouldn’t have gained in the classroom, and prepared me to dive into work with startups, investors, entrepreneurs, and customers after college. I’m especially proud that many of these projects led to tangible changes for the organizations we worked with, which gave me a sense of impact I’ve been able to build on."
+    },
+
 ]
 
 // Company logos where alumni work
