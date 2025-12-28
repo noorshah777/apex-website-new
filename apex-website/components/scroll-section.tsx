@@ -133,9 +133,9 @@ export default function ScrollSection() {
                 className="w-full h-full object-cover"
                 controls
                 preload="auto"
-                poster="/images/hypevidthumbnailw25.JPG"
+                poster="/images/hypevidthumbnailf25.JPG"
               >
-                <source src="/videos/W25hypevid.mp4" type="video/mp4" />
+                <source src="/videos/F25hypevid.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
