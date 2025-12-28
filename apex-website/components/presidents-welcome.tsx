@@ -19,12 +19,12 @@ interface PresidentsWelcomeProps {
 // Sample images for the carousel - replace with actual images
 const presidentImages = [
   {
-    src: "/images/presidentswelcome/pic1.jpeg",
+    src: "/images/presidentswelcome/pic1.JPEG",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
   },
   {
-    src: "/images/presidentswelcome/pic2.jpg",
+    src: "/images/presidentswelcome/pic2.JPEG",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
@@ -34,12 +34,12 @@ const presidentImages = [
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic4.JPG",
+    src: "/images/presidentswelcome/pic4.JPEG",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic5.jpg",
+    src: "/images/presidentswelcome/pic5.jpeg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
