@@ -100,7 +100,7 @@ export default function ScrollSection() {
             </h2>
             <div className="h-1 w-20 bg-apex-red mx-auto"></div>
             <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              APEX Consulting Group is a pro-bono student-led consulting organization at the University of Michigan.
+              APEX Consulting Group is a student-led consulting organization at the University of Michigan.
               With 50 current members hailing from diverse academic and personal backgrounds and 100+ alumni strong,
               APEX has served over 130 local businesses, innovative startups, and industry leaders all around the
               country through semester-long projects, providing clients with data-driven, strategic, and growth-oriented

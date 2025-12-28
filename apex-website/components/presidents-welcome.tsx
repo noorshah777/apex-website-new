@@ -179,30 +179,32 @@ export default function PresidentsWelcome({ className }: PresidentsWelcomeProps)
 
               <div className="relative pl-4 border-l-4 border-apex-red py-2 italic">
                 <p className="text-muted-foreground">
-                  For me, APEX has been one of the most rewarding aspects of my college experience. I still remember
-                  walking into my first APEX event as a nervous sophomore, overwhelmed by the chaos of recruiting
-                  season. Yet, from the very first interaction, I felt at home.
+                  For both of us, APEX has been one of the most meaningful parts of our college experience. We still 
+                  remember walking into our first APEX events as fall semester freshmen, feeling nervous because we didn’t 
+                  really know what consulting was. But from those first few conversations, we felt at home. Joining together 
+                  in the fall of 2023 was one of the best decisions of our lives, because APEX helped us find ourselves as people, 
+                  what we wanted to do as a career, and some of our best friends on campus.
                 </p>
               </div>
 
               <p className="text-muted-foreground">
-                The genuine support, kindness, and encouragement I received from members made all the difference.
-                Whether I needed guidance on navigating my career, someone to laugh with after a long day, or just a
-                group to study with during finals, APEX was always there, turning every challenge into an opportunity to
-                grow together.
+                  The encouragement, mentorship, and kindness we found here are what truly set APEX apart. Whether it was asking someone 
+                  to review our resumes, calling for hours to figure out what careers we were interested in, or finding someone to grab a 
+                  sweet treat with at night, there was always someone not willing, but wanting to show up. 
               </p>
 
               <p className="text-muted-foreground">
-                The professional development I&apos;ve gained through APEX is unparalleled. When I first joined, I knew
-                very little about consulting, but the incredible people here were always willing to help. Whether it was
-                teaching me the fundamentals of consulting at 2 AM, explaining what different firms look for, or casing
-                with me tirelessly during my summer recruiting, they never hesitated to share their time and knowledge.
+                  The professional development we’ve gained through APEX is unparalleled. When we joined, neither of us really knew what we 
+                  wanted to do, and while one of us ended up in consulting and the other in software engineering, APEX supported both paths 
+                  from the start. Whether it was late-night casing, interview prep, or just honest conversations about different careers and industries, 
+                  APEX upperclassmen always made sure we were 100% ready going into any interview or information session. That willingness to invest in each 
+                  other and genuinely want everyone to succeed is something that’s stuck with us.
               </p>
 
               <p className="text-muted-foreground">
-                APEX has an inspiring history that I&apos;m proud to be a part of. Since its founding in 2012, APEX has
-                grown into a dynamic organization that partners with clients of all sizes – from local businesses to
-                innovative startups to industry leaders – spanning industries and sectors around the country.
+                  APEX also has an inspiring history that we are proud to be a part of. Since its founding in 2012, APEX has grown into a dynamic organization 
+                  that partners with clients of all sizes – from local businesses to innovative technology startups to Fortune 500 industry leaders – spanning 
+                  industries and sectors around the world.
               </p>
 
               <p className="text-muted-foreground">
@@ -216,9 +218,9 @@ export default function PresidentsWelcome({ className }: PresidentsWelcomeProps)
               </p>
 
               <div className="mt-8 space-y-1 text-center">
-                <div className="font-signature text-5xl text-apex-red">Sajni Patel</div>
-                <p className="text-sm font-medium">Sajni Patel</p>
-                <p className="text-xs text-muted-foreground">President of APEX Consulting, 2025</p>
+                <div className="font-signature text-5xl text-apex-red">Sreejay and Urmi</div>
+                <p className="text-sm font-medium">Sreejay Ramakrishnan and Urmi Joglekar</p>
+                <p className="text-xs text-muted-foreground">Presidents of APEX Consulting, 2025</p>
               </div>
             </CardContent>
           </Card>
