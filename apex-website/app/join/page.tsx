@@ -51,7 +51,7 @@ const timelineEvents = [
     time: "8:00 AM",
     location: "Online",
     description: "Applications for APEX Consulting Group will be available on our website.",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
     linkText: "Apply here",
     active: false,
     icon: <FileText className="h-5 w-5 font-bold" />,

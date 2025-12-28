@@ -400,7 +400,7 @@ const processSteps = [
     number: 1,
     title: "Client Onboarding",
     description:
-      "Initial meeting with our VP Projects and VP Client Acquisition to understand your business needs and establish project scope. All services are provided pro bono.",
+      "Initial meeting with our VP Projects and VP Client Acquisition to understand your business needs and establish project scope.",
     icon: <HeartHandshake className="h-6 w-6" />,
   },
   {
@@ -927,7 +927,7 @@ export default function ServicesPage() {
             <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Consulting Process</h2>
               <p className="text-muted-foreground text-base md:text-lg">
-                Our structured 8-week pro bono consulting process delivers maximum value to our clients.
+                Our structured 8-week consulting process delivers maximum value to our clients.
               </p>
             </div>
             <div className="relative">

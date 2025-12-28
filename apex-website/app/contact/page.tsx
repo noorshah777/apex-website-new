@@ -199,7 +199,7 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 text-red-600 mt-0.5" />
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-muted-foreground">apex.board2025@umich.edu</p>
+                      <p className="text-muted-foreground">apex-eboard@umich.edu</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
