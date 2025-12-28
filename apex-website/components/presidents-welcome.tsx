@@ -208,13 +208,14 @@ export default function PresidentsWelcome({ className }: PresidentsWelcomeProps)
               </p>
 
               <p className="text-muted-foreground">
-                If you&apos;re considering joining us, I encourage you to attend our recruiting events and connect with
-                our members. These events are a great way to see firsthand what makes APEX so special.
+                  If you're considering joining us, we encourage you to attend our recruiting events and connect with our members. These events are a great way to 
+                  see firsthand what makes APEX so special.
+
               </p>
 
               <p className="text-muted-foreground">
-                Thank you again for your interest, and I can&apos;t wait to meet you. APEX changed my college journey
-                for the better, and I hope it can do the same for you.
+                  Thank you again for your interest, and we can't wait to meet you. APEX changed our college experiences for the better, and we hope it can do the same 
+                  for you.
               </p>
 
               <div className="mt-8 space-y-1 text-center">
