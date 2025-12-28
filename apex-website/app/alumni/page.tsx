@@ -94,7 +94,7 @@ const testimonials = [
     name: "Taewoong Seo",
     role: "Product Manager",
     company: "CareEvolution",
-    year: "2025",
+    year: "2023",
     image: "/images/alumni-testimonials/TaewoongS.jpg",
     quote:
       "APEX Consulting Group defined my professional path and gave me early exposure to real-world consulting and business challenges. I worked on a wide variety of projects — from revamping customer experience for a local restaurant chain in Ann Arbor, to helping a solar vehicle startup secure funding, streamlining operations for a pasta manufacturer, and finding creative ways to cut costs for a clothing brand. These experiences gave me practical skills, exposure, and confidence I wouldn’t have gained in the classroom, and prepared me to dive into work with startups, investors, entrepreneurs, and customers after college. I’m especially proud that many of these projects led to tangible changes for the organizations we worked with, which gave me a sense of impact I’ve been able to build on."
