@@ -20,27 +20,27 @@ interface PresidentsWelcomeProps {
 const presidentImages = [
   {
     src: "/images/presidentswelcome/pic1.jpeg",
-    alt: "Sajni Patel, President of APEX Consulting",
-    caption: "Sajni Patel, President of APEX Consulting",
+    alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
+    caption: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
   },
   {
     src: "/images/presidentswelcome/pic2.jpg",
-    alt: "Sajni Patel, President of APEX Consulting",
+    alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
     src: "/images/presidentswelcome/pic3.JPEG",
-    alt: "Sajni Patel, President of APEX Consulting",
+    alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
     src: "/images/presidentswelcome/pic4.JPG",
-    alt: "Sajni Patel, President of APEX Consulting",
+    alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
     src: "/images/presidentswelcome/pic5.jpg",
-    alt: "Sajni Patel, President of APEX Consulting",
+    alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
     caption: "",
   },
 ]
@@ -218,8 +218,8 @@ export default function PresidentsWelcome({ className }: PresidentsWelcomeProps)
               </p>
 
               <div className="mt-8 space-y-1 text-center">
-                <div className="font-signature text-5xl text-apex-red">Sreejay and Urmi</div>
-                <p className="text-sm font-medium">Sreejay Ramakrishnan and Urmi Joglekar</p>
+                <div className="font-signature text-5xl text-apex-red">Urmi and Sreejay</div>
+                <p className="text-sm font-medium">Urmi Joglekar and Sreejay Ramakrishnan</p>
                 <p className="text-xs text-muted-foreground">Presidents of APEX Consulting, 2025</p>
               </div>
             </CardContent>
