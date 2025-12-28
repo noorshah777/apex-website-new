@@ -25,6 +25,7 @@ import {
   ChevronRight,
   Check,
   HelpCircle,
+  Snowflake
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
@@ -37,31 +38,43 @@ const timelineEvents = [
   {
     id: "meet-the-clubs",
     title: "BBA Meet the Clubs",
-    date: "September 3, 2025",
+    date: "Thursday, January 8, 2026",
     time: "5:30 PM - 7:30 PM",
-    location: "Ross, Table 39 (near Robertson)",
+    location: "Ross First Floor (near Robertson)",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
     icon: <Building className="h-5 w-5 font-bold" />,
   },
-  {
-    id: "application-release",
-    title: "Application Release",
-    date: "Thursday, September 4, 2025",
-    time: "8:00 AM",
-    location: "Online",
-    description: "Applications for APEX Consulting Group will be available on our website.",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
-    linkText: "Apply here",
+
+    {
+    id: "winterfest",
+    title: "Winterfest",
+    date: "Tuesday, January 13, 2026",
+    time: "4:00 PM - 7:00 PM",
+    location: "Michigan Union Idea Hub Table 2",
+    description: "Meet APEX Consulting Group at the Michigan Union",
     active: false,
-    icon: <FileText className="h-5 w-5 font-bold" />,
+    icon: <Snowflake className="h-5 w-5 font-bold" />,
   },
+
+  // {
+  //   id: "application-release",
+  //   title: "Application Release",
+  //   date: "Thursday, September 4, 2025",
+  //   time: "8:00 AM",
+  //   location: "Online",
+  //   description: "Applications for APEX Consulting Group will be available on our website.",
+  //   url: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
+  //   linkText: "Apply here",
+  //   active: false,
+  //   icon: <FileText className="h-5 w-5 font-bold" />,
+  // },
   {
     id: "mass-meeting",
     title: "Mass Meeting",
-    date: "Tuesday, September 9, 2025",
-    time: "8:30 PM - 9:30 PM",
-    location: "Blau Colloquium",
+    date: "Thursday, January 15, 2026",
+    time: "5:30 PM - 6:30 PM",
+    location: "B1580",
     description: "Learn more about APEX Consulting Group, our projects, and the application process",
     active: false,
     icon: <Users className="h-5 w-5 font-bold" />,
@@ -69,9 +82,9 @@ const timelineEvents = [
   {
     id: "speed-dating",
     title: "Speed Dating",
-    date: "Sunday, September 14, 2025",
-    time: "4:00 PM - 6:00 PM",
-    location: "R0210",
+    date: "Date TBD",
+    time: "Time TBD",
+    location: "Location TBD",
     description: "Meet current members and learn about their experiences with APEX. ",
     url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-58173929-apex#/",
     linkInDescription: "Sign up required",
@@ -81,9 +94,9 @@ const timelineEvents = [
   {
     id: "dei-panel",
     title: "Professional Career Panel",
-    date: "Monday, September 15, 2025",
-    time: "8:30 PM - 9:30 PM",
-    location: "B1570",
+    date: "Date TBD",
+    time: "Time TBD",
+    location: "Location TBD",
     description: "Discover the career paths APEX members followed and how their time in APEX shaped their success",
     active: false,
     icon: <Users className="h-5 w-5 font-bold" />,
@@ -91,9 +104,9 @@ const timelineEvents = [
   {
     id: "application-office-hours",
     title: "Application Office Hours",
-    date: "Wednesday, September 17, 2025",
-    time: "4:00 PM - 5:30 PM",
-    location: "Zoom",
+    date: "Date TBD",
+    time: "Time TBD",
+    location: "Location TBD",
     description: "Get help with your application from current members ",
     url: "https://umich.zoom.us/j/6036940179",
     linkInDescription: "via Zoom",
@@ -103,11 +116,11 @@ const timelineEvents = [
   {
     id: "app-due",
     title: "Application Deadline",
-    date: "Wednesday, September 17, 2025",
+    date: "Date TBD",
     time: "11:59 PM",
     location: "Online",
     description: "All applications must be submitted by this time. ",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
     linkText: "Apply here",
     active: false,
     icon: <Clock className="h-5 w-5 font-bold" />,
@@ -115,8 +128,8 @@ const timelineEvents = [
   {
     id: "case-workshop",
     title: "Case Workshop",
-    date: "Thursday, September 18, 2025",
-    time: "7:00 PM - 8:00 PM",
+    date: "Date TBD",
+    time: "Time TBD",
     location: "See Invitation",
     description: "Learn about case interviews and practice with current members. Invite only event",
     active: false,
@@ -125,7 +138,7 @@ const timelineEvents = [
   {
     id: "interviews",
     title: "Interviews",
-    date: "Friday, September 19, 2025 - Sunday, September 21, 2025",
+    date: "Dates TBD",
     time: "Various Times",
     location: "Ross School of Business",
     description: "Selected candidates will be invited for interviews.",
@@ -478,7 +491,7 @@ export default function JoinPage() {
         ]}
         ctaButton={{
           text: "Apply Now",
-          href: "https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
           variant: "default",
         }}
       />
@@ -802,7 +815,7 @@ export default function JoinPage() {
 
                         {currentStep === 0 && (
                           <Button asChild className="mt-6 bg-apex-red hover:bg-red-700">
-                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeK_10w9jF4o0lMyq8g8VprwF5lz7rb7U6MpIkdxoHC4-sApg/closedform" className="flex items-center gap-2">
+                            <Link href="hhttps://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header" className="flex items-center gap-2">
                               Apply Now <ArrowRight className="h-4 w-4" />
                             </Link>
                           </Button>
