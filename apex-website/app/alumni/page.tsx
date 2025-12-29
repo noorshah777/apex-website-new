@@ -82,7 +82,7 @@ const testimonials = [
 
   {
     name: "Riya Chakravarty",
-    role: "Software Engineer",
+    role: "Forward Deployed Software Engineer",
     company: "Palantir",
     year: "2025",
     image: "/images/alumni-testimonials/RiyaC.jpg",
