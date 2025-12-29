@@ -19,27 +19,27 @@ interface PresidentsWelcomeProps {
 
 const presidentImages = [
   {
-    src: "/images/presidentswelcome/pic1.JPEG",
+    src: "/images/presidentswelcome/pic1.jpg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
   },
   {
-    src: "/images/presidentswelcome/pic2.JPEG",
+    src: "/images/presidentswelcome/pic2.jpg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic3.JPEG",
+    src: "/images/presidentswelcome/pic3.jpg",
     alt: "Urmi Joglekar and Sreejay Ramakrishnan, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic4.jpeg",
+    src: "/images/presidentswelcome/pic4.jpg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic5.jpeg",
+    src: "/images/presidentswelcome/pic5.jpg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },

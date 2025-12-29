@@ -408,7 +408,7 @@ export default function TeamPage() {
 
   const roles = [
     { key: "eboard", label: "Executive Board" },
-    { key: "members", label: "General Members"},
+    { key: "members", label: "Our Members"},
   ]
 
   return (
