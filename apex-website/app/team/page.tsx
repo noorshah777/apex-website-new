@@ -107,7 +107,7 @@ members: [
   {
     name: "Caleb Hyun",
     role: "Senior Advisor",
-    image: "/images/headshots/Members/CalebH.JPG",
+    image: "/images/headshots/Members/CalebH.jpg",
     linkedin: "https://www.linkedin.com/in/calebkhyun/",
     email: "ckhyun@umich.edu",
   },
@@ -240,7 +240,7 @@ members: [
   {
     name: "Lauren Allen",
     role: "Senior Advisor",
-    image: "/images/headshots/Members/LaurenA.jpg",
+    image: "/images/headshots/Members/LaurenA.JPG",
     linkedin: "https://www.linkedin.com/in/laurenallen022/",
     email: "laurenaa@umich.edu",
   },

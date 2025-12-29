@@ -16,7 +16,7 @@ interface PresidentsWelcomeProps {
   className?: string
 }
 
-// Sample images for the carousel - replace with actual images
+
 const presidentImages = [
   {
     src: "/images/presidentswelcome/pic1.JPEG",
@@ -34,7 +34,7 @@ const presidentImages = [
     caption: "",
   },
   {
-    src: "/images/presidentswelcome/pic4.JPEG",
+    src: "/images/presidentswelcome/pic4.jpeg",
     alt: "Sreejay Ramakrishnan and Urmi Joglekar, Co-Presidents of APEX Consulting",
     caption: "",
   },
