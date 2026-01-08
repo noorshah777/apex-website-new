@@ -26,11 +26,13 @@ import {
   Check,
   HelpCircle,
   Snowflake
+
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import PageHeader from "@/components/page-header"
 import { generateGoogleCalendarLink } from "@/utils/calendar"
 import { useMediaQuery } from "react-responsive" 
+import { HeartHandshakeIcon } from "lucide-react"
 
 
 // Timeline data with minimalist icons instead of emojis
@@ -40,7 +42,7 @@ const timelineEvents = [
     title: "BBA Meet the Clubs",
     date: "Thursday, January 8, 2026",
     time: "5:30 PM - 7:30 PM",
-    location: "Ross First Floor (near Robertson)",
+    location: "Ross Basement",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
     icon: <Building className="h-5 w-5 font-bold" />,
@@ -80,11 +82,21 @@ const timelineEvents = [
     icon: <Users className="h-5 w-5 font-bold" />,
   },
   {
+    id: "dei-panel",
+    title: "Professional Career Panel",
+    date: "Thursday, January 22, 2026",
+    time: "5:30 PM - 7:00 PM",
+    location: "R2240",
+    description: "Discover the career paths APEX members followed and how their time in APEX shaped their success",
+    active: false,
+    icon: <Users className="h-5 w-5 font-bold" />,
+  },
+  {
     id: "speed-dating",
     title: "Speed Dating",
-    date: "Date TBD",
-    time: "Time TBD",
-    location: "Location TBD",
+    date: "Saturday, January 24, 2026",
+    time: "2:00 PM - 4:00 PM",
+    location: "R2210",
     description: "Meet current members and learn about their experiences with APEX. ",
     url: "https://www.signupgenius.com/go/10C0848AFA62BAAF8C34-58173929-apex#/",
     linkInDescription: "Sign up required",
@@ -92,31 +104,31 @@ const timelineEvents = [
     icon: <MessageSquare className="h-5 w-5 font-bold" />,
   },
   {
-    id: "dei-panel",
-    title: "Professional Career Panel",
-    date: "Date TBD",
-    time: "Time TBD",
-    location: "Location TBD",
-    description: "Discover the career paths APEX members followed and how their time in APEX shaped their success",
+    id: "community-event",
+    title: "Community Service Event",
+    date: "Sunday, January 25, 2026",
+    time: "7:00 PM - 8:00 PM",
+    location: "R1220",
+    description: "Meet APEX members while working to serve the local Ann Arbor community.",
     active: false,
-    icon: <Users className="h-5 w-5 font-bold" />,
+    icon: <HeartHandshakeIcon className="h-5 w-5 font-bold" />,
   },
-  {
-    id: "application-office-hours",
-    title: "Application Office Hours",
-    date: "Date TBD",
-    time: "Time TBD",
-    location: "Location TBD",
-    description: "Get help with your application from current members ",
-    url: "https://umich.zoom.us/j/6036940179",
-    linkInDescription: "via Zoom",
-    active: false,
-    icon: <HelpCircle className="h-5 w-5 font-bold" />,
-  },
+  // {
+  //   id: "application-office-hours",
+  //   title: "Application Office Hours",
+  //   date: "Date TBD",
+  //   time: "Time TBD",
+  //   location: "Location TBD",
+  //   description: "Get help with your application from current members ",
+  //   url: "https://umich.zoom.us/j/6036940179",
+  //   linkInDescription: "via Zoom",
+  //   active: false,
+  //   icon: <HelpCircle className="h-5 w-5 font-bold" />,
+  // },
   {
     id: "app-due",
     title: "Application Deadline",
-    date: "Date TBD",
+    date: "January 27, 2026",
     time: "11:59 PM",
     location: "Online",
     description: "All applications must be submitted by this time. ",
@@ -127,9 +139,9 @@ const timelineEvents = [
   },
   {
     id: "case-workshop",
-    title: "Case Workshop",
-    date: "Date TBD",
-    time: "Time TBD",
+    title: "Invite Only Case Workshop",
+    date: "Wednesday, January 28, 2026",
+    time: "See Invitation",
     location: "See Invitation",
     description: "Learn about case interviews and practice with current members. Invite only event",
     active: false,
@@ -138,7 +150,7 @@ const timelineEvents = [
   {
     id: "interviews",
     title: "Interviews",
-    date: "Dates TBD",
+    date: "Friday, January 30, 2026 - Sunday February 1, 2026",
     time: "Various Times",
     location: "Ross School of Business",
     description: "Selected candidates will be invited for interviews.",
