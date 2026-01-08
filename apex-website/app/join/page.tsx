@@ -42,7 +42,7 @@ const timelineEvents = [
     title: "BBA Meet the Clubs",
     date: "Thursday, January 8, 2026",
     time: "5:30 PM - 7:30 PM",
-    location: "Ross Basement",
+    location: "Ross Table 36",
     description: "Learn about APEX Consulting Group and other student organizations on campus",
     active: false,
     icon: <Building className="h-5 w-5 font-bold" />,
