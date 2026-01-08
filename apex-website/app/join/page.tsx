@@ -139,7 +139,7 @@ const timelineEvents = [
   },
   {
     id: "case-workshop",
-    title: "Invite Only Case Workshop",
+    title: "Case Workshop",
     date: "Wednesday, January 28, 2026",
     time: "See Invitation",
     location: "See Invitation",
