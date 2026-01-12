@@ -240,10 +240,10 @@ export default function EnhancedFooter() {
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-apex-red mr-3 flex-shrink-0" />
                   <a
-                    href="mailto:info@apexconsulting.org"
+                    href="mailto:apex-eboard@umich.edu"
                     className="text-gray-300 hover:text-apex-red transition-colors"
                   >
-                    apex.board2025@umich.edu
+                    apex-eboard@umich.edu
                   </a>
                 </div>
               </div>
