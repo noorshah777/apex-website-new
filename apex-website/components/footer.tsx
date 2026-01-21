@@ -160,7 +160,7 @@ export default function EnhancedFooter() {
                 />
               </div>
               <p className="text-gray-300">
-                APEX Consulting Group is a pro-bono student-led consulting organization at the University of Michigan,
+                APEX Consulting Group is a student-led consulting organization at the University of Michigan,
                 providing strategic solutions to businesses and organizations.
               </p>
               <div className="flex space-x-4 mt-6">
