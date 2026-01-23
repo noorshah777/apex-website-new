@@ -15,7 +15,7 @@ import {
 import PageHeader from "@/components/page-header"
 
 
-// Team Data
+// Team Data 
 const teamMembers = {
  eboard: [
    {
@@ -156,7 +156,7 @@ members: [
   {
     name: "Evan Swierczewski",
     role: "Business Analyst",
-    image: "/images/headshots/Members/EvanS.jpeg",
+    image: "/images/headshots/Members/EvanS.JPEG",
     linkedin: "https://www.linkedin.com/in/evan-swierczewski/",
     email: "etski@umich.edu",
   },
