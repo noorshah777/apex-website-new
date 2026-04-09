@@ -77,6 +77,20 @@ const teamMembers = {
 
 members: [
   {
+    name: "Aanya Rana",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/AanyaR.jpeg",
+    linkedin: "https://www.linkedin.com/in/aanyarana/",
+    email: "aanirana@umich.edu",
+  },
+  {
+    name: "Adhiyan Anbarasu",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/AdhiyanA.jpeg",
+    linkedin: "https://www.linkedin.com/in/adhiyan-anbarasu/",
+    email: "adhiyan@umich.edu",
+  },
+  {
     name: "Adi Gaba",
     role: "Senior Advisor",
     image: "/images/headshots/Members/AdiG.jpg",
@@ -92,7 +106,7 @@ members: [
   },
   {
     name: "Avery Anslinger",
-    role: "Business Analyst",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/AveryA.jpeg",
     linkedin: "https://www.linkedin.com/in/averyanslinger/",
     email: "averyans@umich.edu",
@@ -141,7 +155,7 @@ members: [
   },
   {
     name: "David Gonzalez",
-    role: "Business Analyst",
+    role: "Project Manager",
     image: "/images/headshots/Members/DavidG.jpg",
     linkedin: "https://www.linkedin.com/in/davidgzzmtz/",
     email: "davidgmz@umich.edu",
@@ -154,8 +168,15 @@ members: [
     email: "denliu@umich.edu",
   },
   {
-    name: "Evan Swierczewski",
+    name: "Emir Khelifi",
     role: "Business Analyst",
+    image: "/images/headshots/Members/EmirK.jpeg",
+    linkedin: "https://www.linkedin.com/in/emirkhelifi/",
+    email: "khelifi@umich.edu",
+  },
+  {
+    name: "Evan Swierczewski",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/EvanS.JPEG",
     linkedin: "https://www.linkedin.com/in/evan-swierczewski/",
     email: "etski@umich.edu",
@@ -176,21 +197,21 @@ members: [
   },
   {
     name: "Irene Oh",
-    role: "Business Analyst",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/IreneO.jpeg",
     linkedin: "https://www.linkedin.com/in/irenesoh1/",
     email: "irenesoh@umich.edu",
   },
   {
     name: "Jacob Harleton",
-    role: "Business Analyst Lead",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/JacobH.JPG",
     linkedin: "https://www.linkedin.com/in/jacobharleton/",
     email: "harleton@umich.edu",
   },
   {
     name: "Jiali Goodwin",
-    role: "Business Analyst",
+    role: "Project Manager",
     image: "/images/headshots/Members/JialiG.jpeg",
     linkedin: "https://www.linkedin.com/in/jiali-goodwin/",
     email: "jialig@umich.edu",
@@ -211,7 +232,7 @@ members: [
   },
   {
     name: "Katelyn Knickerbocker",
-    role: "Business Analyst Lead",
+    role: "Project Manager",
     image: "/images/headshots/Members/KatelynK.jpg",
     linkedin: "https://www.linkedin.com/in/katelyn-knickerbocker-75103b332/",
     email: "kkately@umich.edu",
@@ -232,10 +253,17 @@ members: [
   },
   {
     name: "Kritika Singh",
-    role: "Business Analyst Lead",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/KritikaS.jpg",
     linkedin: "https://www.linkedin.com/in/kritika-singhh/",
     email: "skritika@umich.edu",
+  },
+  {
+    name: "Kyle Linnhan",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/KyleL.jpeg",
+    linkedin: "https://www.linkedin.com/in/kyle-linnhan/",
+    email: "klinnhan@umich.edu",
   },
   {
     name: "Lauren Allen",
@@ -251,18 +279,23 @@ members: [
     linkedin: "https://www.linkedin.com/in/lauryn-hobbs/",
     email: "",
   },
-
-
+  {
+    name: "Laya Raj",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/LayaR.jpeg",
+    linkedin: "https://www.linkedin.com/in/layaraj1/",
+    email: "layaraj@umich.edu",
+  },
   {
     name: "Lorenzo Alessi",
-    role: "Business Analyst",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/LorenzoA.jpeg",
     linkedin: "https://www.linkedin.com/in/lorenzoalessi/",
     email: "lcalessi@umich.edu",
   },
   {
     name: "Manya Gowda",
-    role: "Business Analyst",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/ManyaG.jpeg",
     linkedin: "https://www.linkedin.com/in/manyagowda/",
     email: "manyag@umich.edu",
@@ -297,7 +330,7 @@ members: [
   },
   {
     name: "Nikhil Akkala",
-    role: "Project Manager",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/NikhilA.JPG",
     linkedin: "https://www.linkedin.com/in/nikhil-akkala/",
     email: "nakkala@umich.edu",
@@ -317,22 +350,36 @@ members: [
     email: "noorshah@umich.edu",
   },
   {
+    name: "Quinn Suvedi",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/QuinnS.jpeg",
+    linkedin: "https://www.linkedin.com/in/quinn-suvedi/",
+    email: "qsuvedi@umich.edu",
+  },
+  {
     name: "Reagan Masek",
-    role: "Business Analyst Lead",
+    role: "Project Manager",
     image: "/images/headshots/Members/ReaganM.jpg",
     linkedin: "https://www.linkedin.com/in/reagan-masek/",
     email: "rmasek@umich.edu",
   },
   {
     name: "Ruthie Yu",
-    role: "Senior Advisor",
+    role: "Project Manager",
     image: "/images/headshots/Members/RuthieY.JPG",
     linkedin: "https://www.linkedin.com/in/ruthie-yu/",
     email: "yuruthie@umich.edu",
   },
   {
-    name: "Ryan Wells",
+    name: "Ryan Michaels",
     role: "Business Analyst",
+    image: "/images/headshots/Members/RyanM.jpeg",
+    linkedin: "https://www.linkedin.com/in/ryanjmichaels/",
+    email: "michrj@umich.edu",
+  },
+  {
+    name: "Ryan Wells",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/RyanW.jpeg",
     linkedin: "https://www.linkedin.com/in/ryanwells10/",
     email: "rpwells@umich.edu",
@@ -346,14 +393,14 @@ members: [
   },
   {
     name: "Sam Pelter",
-    role: "Business Analyst",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/SamP.jpg",
     linkedin: "https://www.linkedin.com/in/samanthapelter/",
     email: "spelter@umich.edu",
   },
   {
     name: "Sanjay Tilak",
-    role: "Business Analyst",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/SanjayT.JPG",
     linkedin: "https://www.linkedin.com/in/sanjay-tilak/",
     email: "sanjayt@umich.edu",
@@ -366,6 +413,13 @@ members: [
     email: "sophr@umich.edu",
   },
   {
+    name: "Sravya Kankatala",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/.jpeg",
+    linkedin: "https://www.linkedin.com/in/sravya-kankatala-163a413b6/",
+    email: "srkankat@umich.edu",
+  },
+  {
     name: "Srivatsav Bendi",
     role: "Senior Advisor",
     image: "/images/headshots/Members/SrivatsavB.jpg",
@@ -374,14 +428,21 @@ members: [
   },
   {
     name: "Suraj Makunur",
-    role: "Business Analyst",
+    role: "Business Analyst Lead",
     image: "/images/headshots/Members/SurajM.jpeg",
     linkedin: "https://www.linkedin.com/in/surajmakunur/",
     email: "smakunur@umich.edu",
   },
   {
+    name: "Uma Rao",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/UmaR.jpeg",
+    linkedin: "https://www.linkedin.com/in/umarao/",
+    email: "umarao@umich.edu",
+  },
+  {
     name: "Vansh Baxi",
-    role: "Business Analyst Lead",
+    role: "Senior Advisor",
     image: "/images/headshots/Members/VanshB.JPEG",
     linkedin: "https://www.linkedin.com/in/vanshbaxi/",
     email: "vbaxi@umich.edu",
@@ -399,6 +460,13 @@ members: [
     image: "/images/headshots/Members/VivekC.png",
     linkedin: "https://www.linkedin.com/in/vrchanduri/",
     email: "vivekrc@umich.edu",
+  },
+  {
+    name: "Whalan Eid",
+    role: "Business Analyst",
+    image: "/images/headshots/Members/WhalanE.jpeg",
+    linkedin: "https://www.linkedin.com/in/whalaneid/",
+    email: "whalan@umich.edu",
   },
 ]
 }
