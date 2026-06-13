@@ -79,14 +79,14 @@ members: [
   {
     name: "Aanya Rana",
     role: "Business Analyst",
-    image: "/images/headshots/Members/AanyaR.jpeg",
+    image: "/images/headshots/Members/AanyaR.jpg",
     linkedin: "https://www.linkedin.com/in/aanyarana/",
     email: "aanirana@umich.edu",
   },
   {
     name: "Adhiyan Anbarasu",
     role: "Business Analyst",
-    image: "/images/headshots/Members/AdhiyanA.jpeg",
+    image: "/images/headshots/Members/AdhiyanA.jpg",
     linkedin: "https://www.linkedin.com/in/adhiyan-anbarasu/",
     email: "adhiyan@umich.edu",
   },
@@ -170,14 +170,14 @@ members: [
   {
     name: "Emir Khelifi",
     role: "Business Analyst",
-    image: "/images/headshots/Members/EmirK.jpeg",
+    image: "/images/headshots/Members/EmirK.jpg",
     linkedin: "https://www.linkedin.com/in/emirkhelifi/",
     email: "khelifi@umich.edu",
   },
   {
     name: "Evan Swierczewski",
     role: "Business Analyst Lead",
-    image: "/images/headshots/Members/EvanS.JPEG",
+    image: "/images/headshots/Members/EvanS.jpeg",
     linkedin: "https://www.linkedin.com/in/evan-swierczewski/",
     email: "etski@umich.edu",
   },
@@ -261,7 +261,7 @@ members: [
   {
     name: "Kyle Linnhan",
     role: "Business Analyst",
-    image: "/images/headshots/Members/KyleL.jpeg",
+    image: "/images/headshots/Members/KyleL.jpg",
     linkedin: "https://www.linkedin.com/in/kyle-linnhan/",
     email: "klinnhan@umich.edu",
   },
@@ -352,7 +352,7 @@ members: [
   {
     name: "Quinn Suvedi",
     role: "Business Analyst",
-    image: "/images/headshots/Members/QuinnS.jpeg",
+    image: "/images/headshots/Members/QuinnS.jpg",
     linkedin: "https://www.linkedin.com/in/quinn-suvedi/",
     email: "qsuvedi@umich.edu",
   },
@@ -415,7 +415,7 @@ members: [
   {
     name: "Sravya Kankatala",
     role: "Business Analyst",
-    image: "/images/headshots/Members/.jpeg",
+    image: "/images/headshots/Members/SravyaK.jpg",
     linkedin: "https://www.linkedin.com/in/sravya-kankatala-163a413b6/",
     email: "srkankat@umich.edu",
   },
@@ -429,7 +429,7 @@ members: [
   {
     name: "Suraj Makunur",
     role: "Business Analyst Lead",
-    image: "/images/headshots/Members/SurajM.jpeg",
+    image: "/images/headshots/Members/SurajM.jpg",
     linkedin: "https://www.linkedin.com/in/surajmakunur/",
     email: "smakunur@umich.edu",
   },
