@@ -25,7 +25,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <Button asChild size="lg" className="bg-white text-red-600 hover:bg-white/90 font-bold text-lg">
-                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/closedform">Apply Now</Link>
+                  <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd0iYpG7HcAO9T89Q56iGYsnMGr1kvRm_kCf1RgxMYMUUyXxQ/closedform">Apply Now</Link>
                 </Button>
               </div>
             </div>

@@ -133,7 +133,7 @@ export default function EnhancedFooter() {
 
                 <div className="mt-auto">
                   <Button asChild size="lg" className="bg-apex-red text-white hover:bg-red-700 rounded-xl">
-                    <Link href="/join" className="flex items-center gap-2">
+                    <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd0iYpG7HcAO9T89Q56iGYsnMGr1kvRm_kCf1RgxMYMUUyXxQ/viewform?usp=header">
                       Apply Now <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
