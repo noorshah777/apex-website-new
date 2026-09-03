@@ -515,7 +515,7 @@ export default function JoinPage() {
         ]}
         ctaButton={{
           text: "Apply Now",
-          href: "https://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLSd0iYpG7HcAO9T89Q56iGYsnMGr1kvRm_kCf1RgxMYMUUyXxQ/viewform?usp=header",
           variant: "default",
         }}
       />
@@ -839,7 +839,7 @@ export default function JoinPage() {
 
                         {currentStep === 0 && (
                           <Button asChild className="mt-6 bg-apex-red hover:bg-red-700">
-                            <Link href="hhttps://docs.google.com/forms/d/e/1FAIpQLSe5gRVIgTpxkqTNu6tedmKvyAL-egTJfzV7DBgyOQ2GIPLZJQ/viewform?usp=header" className="flex items-center gap-2">
+                            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd0iYpG7HcAO9T89Q56iGYsnMGr1kvRm_kCf1RgxMYMUUyXxQ/viewform?usp=header" className="flex items-center gap-2">
                               Apply Now <ArrowRight className="h-4 w-4" />
                             </Link>
                           </Button>
