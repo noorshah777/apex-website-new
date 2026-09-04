@@ -518,6 +518,11 @@ export default function JoinPage() {
           href: "https://docs.google.com/forms/d/e/1FAIpQLSd0iYpG7HcAO9T89Q56iGYsnMGr1kvRm_kCf1RgxMYMUUyXxQ/viewform?usp=header",
           variant: "default",
         }}
+        secondaryCta={{
+          text: "Interest Form",
+          href: "https://docs.google.com/forms/d/e/1FAIpQLSf8ZCD_F1aCKc2l_Jmbc_izBfFswKmhdJqv6rvOXsKel-8i9g/viewform",
+          variant: "default",
+        }}
       />
 
       <div className="py-10 md:py-16">

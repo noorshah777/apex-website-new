@@ -13,9 +13,16 @@ interface PageHeaderProps {
     href: string
     variant?: "default" | "outline" | "secondary"
   }
+  secondaryCta?: {
+    text: string
+    href: string
+    variant?: "default" | "outline" | "secondary"
+  }
 }
 
-export default function PageHeader({ title, descriptions, className = "", ctaButton }: PageHeaderProps) {
+export default function PageHeader({ title, descriptions, className = "", ctaButton, secondaryCta }: PageHeaderProps) {
+  const isExternalLink = (url: string) => url.startsWith("http://") || url.startsWith("https://")
+
   return (
     <div className={`relative ${className}`}>
       {/* Particle Background */}
@@ -39,17 +46,45 @@ export default function PageHeader({ title, descriptions, className = "", ctaBut
               />
             </div>
 
-            {/* CTA button */}
-            {ctaButton && (
-              <Button
-                asChild
-                size="lg"
-                variant={ctaButton.variant || "default"}
-                className="bg-white text-apex-red hover:bg-white/90 font-bold text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-5 shadow-lg"
-              >
-                <Link href={ctaButton.href}>{ctaButton.text}</Link>
-              </Button>
+            {/* CTA Buttons Container */}
+            {(ctaButton || secondaryCta) && (
+              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+                {ctaButton && (
+                  <Button
+                    asChild
+                    size="lg"
+                    variant={ctaButton.variant || "default"}
+                    className="bg-white text-apex-red hover:bg-white/90 font-bold text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-5 shadow-lg"
+                  >
+                    {isExternalLink(ctaButton.href) ? (
+                      <a href={ctaButton.href} target="_blank" rel="noopener noreferrer">
+                        {ctaButton.text}
+                      </a>
+                    ) : (
+                      <Link href={ctaButton.href}>{ctaButton.text}</Link>
+                    )}
+                  </Button>
+                )}
+
+                {secondaryCta && (
+                  <Button
+                    asChild
+                    size="lg"
+                    variant={secondaryCta.variant || "outline"}
+                    className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold text-base sm:text-lg px-4 sm:px-6 py-3 sm:py-5 shadow-lg"
+                  >
+                    {isExternalLink(secondaryCta.href) ? (
+                      <a href={secondaryCta.href} target="_blank" rel="noopener noreferrer">
+                        {secondaryCta.text}
+                      </a>
+                    ) : (
+                      <Link href={secondaryCta.href}>{secondaryCta.text}</Link>
+                    )}
+                  </Button>
+                )}
+              </div>
             )}
+
           </div>
         </div>
       </div>
