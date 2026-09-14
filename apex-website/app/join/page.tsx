@@ -78,7 +78,7 @@ const timelineEvents = [
     title: "Mass Meeting",
     date: "Monday, September 14, 2026",
     time: "7:00 PM - 8:00 PM",
-    location: "R0240",
+    location: "Robertson Auditorium",
     description: "Learn more about APEX Consulting Group, our projects, and the application process",
     active: false,
     icon: <Users className="h-5 w-5 font-bold" />,
